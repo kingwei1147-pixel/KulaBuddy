@@ -44,7 +44,7 @@ export class DingTalkBot implements BotAdapter {
     const body: any = {
       msgtype: "markdown",
       markdown: {
-        title: "DaDa",
+        title: "MOMO",
         text: response.text.substring(0, 20000)
       },
       at: {

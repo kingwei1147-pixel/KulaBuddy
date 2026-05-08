@@ -150,7 +150,7 @@ export class DiscordBot implements BotAdapter {
           d: {
             token: this.token,
             intents: 1 << 9 | 1 << 15, // GUILD_MESSAGES | MESSAGE_CONTENT
-            properties: { os: "linux", browser: "dada", device: "dada" }
+            properties: { os: "linux", browser: "momo", device: "momo" }
           }
         });
 

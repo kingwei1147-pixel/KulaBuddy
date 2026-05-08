@@ -120,7 +120,7 @@ export function createPublishPackageTool(
 
       // Check bridge availability
       if (!bridge && input.publishRequested) {
-        blockers.push("Publishing bridge is not configured. Start DaDa with social publishing enabled.");
+        blockers.push("Publishing bridge is not configured. Start MOMO with social publishing enabled.");
       }
 
       // Check media for publish requests
@@ -144,7 +144,7 @@ export function createPublishPackageTool(
 
       // Always mark these as safety blockers
       const safetyBlockers = [
-        "DaDa must not claim content was published until a platform tool returns a post URL or success proof.",
+        "MOMO must not claim content was published until a platform tool returns a post URL or success proof.",
       ];
 
       const allBlockers = [...blockers, ...safetyBlockers];

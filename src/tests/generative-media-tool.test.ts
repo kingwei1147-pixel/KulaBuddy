@@ -28,7 +28,7 @@ test("ComfyUI client extracts generated output files from history", () => {
 });
 
 test("gen.media waits for ComfyUI outputs and downloads files", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-comfy-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-comfy-"));
   const originalFetch = globalThis.fetch;
   try {
     globalThis.fetch = (async (input: string | URL | Request) => {

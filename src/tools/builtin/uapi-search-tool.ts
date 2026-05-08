@@ -50,7 +50,7 @@ export function createUapiSearchTool(): ToolDefinition<UapiSearchInput, UapiSear
           const resp = await fetch(`${BASE}/search/aggregate`, {
             method: "POST",
             signal: controller.signal,
-            headers: { "Content-Type": "application/json", "Accept": "application/json", "User-Agent": "DaDa/1.0" },
+            headers: { "Content-Type": "application/json", "Accept": "application/json", "User-Agent": "MOMO/1.0" },
             body: JSON.stringify({ query, limit: Math.min(limit, 25) })
           });
           if (!resp.ok) {

@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { TaskStore } from "../tasks/task-store.js";
 
 test("task store persists lifecycle transitions", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-task-store-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-task-store-"));
 
   try {
     const store = new TaskStore(join(tempDir, "tasks.json"));
@@ -32,7 +32,7 @@ test("task store persists lifecycle transitions", async () => {
 });
 
 test("task store supports cancellation and retry records", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-task-store-control-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-task-store-control-"));
 
   try {
     const store = new TaskStore(join(tempDir, "tasks.json"));
@@ -59,7 +59,7 @@ test("task store supports cancellation and retry records", async () => {
 });
 
 test("task store creates replay records for failed tasks", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-task-store-replay-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-task-store-replay-"));
 
   try {
     const store = new TaskStore(join(tempDir, "tasks.json"));

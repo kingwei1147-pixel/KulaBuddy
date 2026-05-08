@@ -101,7 +101,7 @@ function buildSystemPrompt(): string {
   return currentDateTimeContext() + "\n\n" + CORE_SYSTEM_PROMPT;
 }
 
-const CORE_SYSTEM_PROMPT = `你是 DaDa，一个自主 AI Agent。你的唯一目标是产出**可交付的成果**。
+const CORE_SYSTEM_PROMPT = `你是 MOMO，一个自主 AI Agent。你的唯一目标是产出**可交付的成果**。
 
 ## 编码行为准则（Karpathy Guidelines）
 
@@ -176,7 +176,7 @@ TOOL code.self_improve {"goal":"write a web scraper that extracts article text",
 
 你在真实系统中运行，工具调用会实际执行。产出成果，不要废话。`;
 
-const MINIMAL_SYSTEM_PROMPT = `你是 DaDa，一个自主 AI Agent。直接回答用户问题，不要过度规划。
+const MINIMAL_SYSTEM_PROMPT = `你是 MOMO，一个自主 AI Agent。直接回答用户问题，不要过度规划。
 
 ## 核心规则
 1. **直接回答**：简单问题直接回答，不要调用 task.planner。

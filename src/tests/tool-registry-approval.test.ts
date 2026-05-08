@@ -11,7 +11,7 @@ import { RiskPolicy } from "../governance/risk-policy.js";
 import { ToolRegistry } from "../tools/tool-registry.js";
 
 test("tool registry requests approval for high-risk tool and allows approved retry", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-tool-approval-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-tool-approval-"));
 
   try {
     const approvals = new ApprovalStore(join(tempDir, "approvals.json"));

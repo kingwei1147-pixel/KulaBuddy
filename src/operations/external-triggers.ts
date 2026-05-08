@@ -1,6 +1,6 @@
 /**
  * ExternalTriggers — generic webhook receiver that maps incoming HTTP calls
- * to DaDa task execution. Enables external services (GitHub, Slack, cron
+ * to MOMO task execution. Enables external services (GitHub, Slack, cron
  * monitors, etc.) to trigger autonomous workflows.
  */
 

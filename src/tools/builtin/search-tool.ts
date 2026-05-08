@@ -282,7 +282,7 @@ export function createSearchTool(completer?: CompleterFn): ToolDefinition<Search
     try {
       // Instant Answer API — returns structured JSON for many queries
       const resp = await fetch(
-        `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1&skip_disambig=1&t=dada-agent`,
+        `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1&skip_disambig=1&t=momo-agent`,
         { headers: { "User-Agent": ua }, signal: AbortSignal.timeout(12000) }
       );
       if (!resp.ok) return results;
@@ -535,7 +535,7 @@ export function createSearchTool(completer?: CompleterFn): ToolDefinition<Search
         } else if (type === "code") {
           const response = await fetch(
             `https://grep.app/api/search?q=${encodeURIComponent(query)}`,
-            { headers: { "User-Agent": "dada-agent/1.0" } }
+            { headers: { "User-Agent": "momo-agent/1.0" } }
           );
           if (!response.ok) return { success: false, error: `Code search failed: ${response.status}` };
           const data = await response.json() as Array<{ id: string; path: string; lines?: Array<{ line_number: number; line: string }> }>;
@@ -549,7 +549,7 @@ export function createSearchTool(completer?: CompleterFn): ToolDefinition<Search
         } else if (type === "docs") {
           const response = await fetch(
             `https://devdocs.io/api?query=${encodeURIComponent(query)}`,
-            { headers: { "User-Agent": "dada-agent/1.0" } }
+            { headers: { "User-Agent": "momo-agent/1.0" } }
           );
           const text = await response.text();
           return { success: true, results: [{ title: `Docs search for "${query}"`, content: text.substring(0, 2000) }], provider: "devdocs" };

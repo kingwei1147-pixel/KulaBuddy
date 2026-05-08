@@ -1,12 +1,12 @@
 {
-  "name": "dada",
+  "name": "momo",
   "version": "0.5.3",
-  "productName": "DaDa",
-  "description": "DaDa autonomous AI agent with built-in GGUF runtime, multi-model orchestration, automation, and self-learning",
+  "productName": "MOMO",
+  "description": "MOMO autonomous AI agent with built-in GGML runtime, multi-model orchestration, automation, and self-learning",
   "author": {
     "name": "kingwang",
     "email": "504097817@qq.com",
-    "url": "https://github.com/wwcc0000904/DuDu-AgentOS"
+    "url": "https://github.com/wwcc0000904/MOMO-AgentOS"
   },
   "type": "module",
   "main": "electron/main.cjs",

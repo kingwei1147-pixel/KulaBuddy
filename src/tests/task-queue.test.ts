@@ -22,7 +22,7 @@ async function waitFor(
 }
 
 test("task queue retries failed tasks within retry limit", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-task-queue-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-task-queue-"));
 
   try {
     const store = new TaskStore(join(tempDir, "tasks.json"));
@@ -62,7 +62,7 @@ test("task queue retries failed tasks within retry limit", async () => {
 });
 
 test("task queue marks task as waiting approval when runner pauses", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-task-queue-approval-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-task-queue-approval-"));
 
   try {
     const store = new TaskStore(join(tempDir, "tasks.json"));

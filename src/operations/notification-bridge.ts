@@ -145,7 +145,7 @@ export class NotificationBridge {
     suggestedActions?: NotificationAction[];
   }): Promise<void> {
     const notification: Notification = {
-      title: "DaDa needs your input",
+      title: "MOMO needs your input",
       body: event.reason,
       level: event.level,
       requiresResponse: event.level === "critical",
@@ -183,7 +183,7 @@ export class NotificationBridge {
     ].filter(Boolean).join("\n");
 
     await this.send({
-      title: "DaDa Daily Report",
+      title: "MOMO Daily Report",
       body,
       level: "info",
     });

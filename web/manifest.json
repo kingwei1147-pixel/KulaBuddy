@@ -1,6 +1,6 @@
 {
-  "name": "DaDa - Autonomous AI Agent",
-  "short_name": "DaDa",
+  "name": "MOMO - Autonomous AI Agent",
+  "short_name": "MOMO",
   "description": "Local-first autonomous AI agent OS",
   "start_url": "/",
   "display": "standalone",
@@ -9,13 +9,13 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "/dada-icon.jpg",
+      "src": "/momo-icon.jpg?v=2",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "/dada-icon.jpg",
+      "src": "/momo-icon.jpg?v=2",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any maskable"

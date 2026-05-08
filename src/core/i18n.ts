@@ -84,7 +84,7 @@ const translations: Record<string, Record<Locale, string>> = {
   "delegation.agent_failed": { zh: "Agent {name} 失败", en: "Agent {name} failed" },
 
   // ── UI ──
-  "ui.title": { zh: "DaDa — 本地智能助手", en: "DaDa — Local AI Assistant" },
+  "ui.title": { zh: "MOMO — 本地智能助手", en: "MOMO — Local AI Assistant" },
   "ui.subtitle": { zh: "自主 AI Agent 工作台", en: "Autonomous AI Agent Workbench" },
   "ui.new_task": { zh: "新建任务", en: "New Task" },
   "ui.task_history": { zh: "任务历史", en: "Task History" },

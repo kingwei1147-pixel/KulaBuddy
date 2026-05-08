@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { createSkillCreateTool } from "../tools/builtin/skill-create-tool.js";
 
 test("skill.create writes a reusable skill draft", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-skill-create-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-skill-create-"));
   try {
     const tool = createSkillCreateTool(tempDir);
     const result = await tool.execute(

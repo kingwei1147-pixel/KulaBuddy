@@ -61,7 +61,7 @@ export function createUapiTranslateTool(): ToolDefinition<UapiTranslateInput, Ua
           const resp = await fetch(`${BASE}/ai/translate`, {
             method: "POST",
             signal: controller.signal,
-            headers: { "Content-Type": "application/json", "Accept": "application/json", "User-Agent": "DaDa/1.0" },
+            headers: { "Content-Type": "application/json", "Accept": "application/json", "User-Agent": "MOMO/1.0" },
             body: JSON.stringify(body)
           });
 

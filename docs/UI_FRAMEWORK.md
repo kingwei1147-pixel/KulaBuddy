@@ -1,10 +1,10 @@
-# DaDa UI Framework
+# MOMO UI Framework
 
 ## Layout
 
 ```
 ┌─────────────── Topbar ──────────────────────┐
-│ Logo  DaDa    model  ● ONLINE  TOK:123     │
+│ Logo  MOMO    model  ● ONLINE  TOK:123     │
 ├────────┬────────────────────────────────────┤
 │        │  ContextBar (current task + badge) │
 │ Panel  ├────────────────────────────────────┤

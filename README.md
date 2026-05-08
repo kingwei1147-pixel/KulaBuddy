@@ -1,20 +1,20 @@
-# DaDa — 本地优先自主 Agent / Local-First Autonomous Agent
+# MOMO — 本地优先自主 Agent / Local-First Autonomous Agent
 
 [中文](#中文) | [English](#english)
 
-DaDa is an autonomous AI agent with **built-in GGUF runtime**, multi-model orchestration, automation, and self-learning. No Ollama, no vLLM, no LM Studio required — load local GGUF models directly, or plug into any OpenAI-compatible cloud API.
+MOMO is an autonomous AI agent with **built-in GGUF runtime**, multi-model orchestration, automation, and self-learning. No Ollama, no vLLM, no LM Studio required — load local GGUF models directly, or plug into any OpenAI-compatible cloud API.
 
-DaDa 是一个 **本地大模型直载 + 外部大模型接入** 的自主 AI Agent。不依赖 Ollama/vLLM/LM Studio，可直接加载 GGUF 模型运行，也可接入 OpenAI-compatible 云端接口。原生中文支持，全栈覆盖从输入到执行到自进化的完整闭环。
+MOMO 是一个 **本地大模型直载 + 外部大模型接入** 的自主 AI Agent。不依赖 Ollama/vLLM/LM Studio，可直接加载 GGUF 模型运行，也可接入 OpenAI-compatible 云端接口。原生中文支持，全栈覆盖从输入到执行到自进化的完整闭环。
 
 ---
 
-## 为什么选择 DaDa / Why DaDa
+## 为什么选择 MOMO / Why MOMO
 
-DaDa 的独特定位：**全栈自主 + 本地优先 + 中文原生 + MCP 自配置**，填补了现有 agent 之间的空白。
+MOMO 的独特定位：**全栈自主 + 本地优先 + 中文原生 + MCP 自配置**，填补了现有 agent 之间的空白。
 
 ### 竞品对比 / Competitor Comparison
 
-| 维度 Dimension | DaDa | Claude Code | OpenClaw | Hermes Agent |
+| 维度 Dimension | MOMO | Claude Code | OpenClaw | Hermes Agent |
 |:---|:---|:---|:---|:---|
 | **定位 Positioning** | 本地优先自主Agent | 专业编码助手 | 数字员工平台 | 自进化智能体 |
 | **GitHub Stars** | — (个人项目) | — (商业产品) | 280K+ | 90K+ |
@@ -40,7 +40,7 @@ DaDa 的独特定位：**全栈自主 + 本地优先 + 中文原生 + MCP 自配
 | **中文支持 Chinese** | ⭐⭐⭐⭐⭐ (原生) | ⭐⭐⭐ | ⭐⭐ | ⭐⭐ |
 | **本地推理 Local Inference** | ✅ (node-llama-cpp) | ❌ (纯云端) | ⭐⭐ | ⭐⭐ |
 
-### DaDa 的护城河 / DaDa's Unique Advantages
+### MOMO 的护城河 / MOMO's Unique Advantages
 
 1. **MCP 自配置** — 唯一能在运行时自发现缺口 → 搜 npm → 安装 → 注册的 agent
 2. **中文原生 + 本地优先** — DeepSeek 中文思维 + node-llama-cpp 本地推理，可完全离线运行
@@ -54,14 +54,14 @@ DaDa 的独特定位：**全栈自主 + 本地优先 + 中文原生 + MCP 自配
 
 ### 最推荐：一键启动 (Windows)
 
-1. 双击 `install-dada.bat` 安装依赖并构建
-2. 双击 `daDa.bat` 启动 DaDa 控制台
+1. 双击 `install-momo.bat` 安装依赖并构建
+2. 双击 `daDa.bat` 启动 MOMO 控制台
 3. 浏览器打开 [http://localhost:9877](http://localhost:9877)
 
 ### Recommended: One-Click Start (Windows)
 
-1. Double-click `install-dada.bat` to install & build
-2. Double-click `daDa.bat` to launch DaDa
+1. Double-click `install-momo.bat` to install & build
+2. Double-click `daDa.bat` to launch MOMO
 3. Open [http://localhost:9877](http://localhost:9877)
 
 ---

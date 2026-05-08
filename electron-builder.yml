@@ -1,4 +1,4 @@
-appId: com.dada.agent
+appId: com.momo.agent
 productName: DaDa
 copyright: Copyright 2026 Orion Wang
 
@@ -30,7 +30,7 @@ asarUnpack:
 win:
   target:
     - nsis
-  icon: web/dada-icon.jpg
+  icon: web/momo-icon.jpg
   artifactName: ${productName}-${version}-${arch}.${ext}
   signAndEditExecutable: false
 
@@ -40,13 +40,13 @@ nsis:
   createDesktopShortcut: true
   createStartMenuShortcut: true
   shortcutName: DaDa
-  installerIcon: web/dada-icon.jpg
-  uninstallerIcon: web/dada-icon.jpg
+  installerIcon: web/momo-icon.jpg
+  uninstallerIcon: web/momo-icon.jpg
 
 mac:
   target:
     - dmg
-  icon: web/dada-icon.jpg
+  icon: web/momo-icon.jpg
   category: public.app-category.developer-tools
   artifactName: ${productName}-${version}-${arch}.${ext}
 
@@ -64,6 +64,6 @@ dmg:
 linux:
   target:
     - AppImage
-  icon: web/dada-icon.jpg
+  icon: web/momo-icon.jpg
   category: Development
   artifactName: ${productName}-${version}-${arch}.${ext}

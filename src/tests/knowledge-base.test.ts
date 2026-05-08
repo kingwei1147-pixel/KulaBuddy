@@ -14,7 +14,7 @@ test("VectorStore indexes and searches documents", async () => {
 
   store.addDocument({
     id: "readme.md#0",
-    content: "DaDa autonomous AI agent with built-in model runtime and tool execution",
+    content: "MOMO autonomous AI agent with built-in model runtime and tool execution",
     metadata: { filePath: "readme.md", chunkIndex: 0, totalChunks: 1, fileType: ".md", lastModified: 0 }
   });
 
@@ -157,7 +157,7 @@ test("scanWorkspace respects includeExtensions filter", async () => {
 test("KnowledgeBase indexes workspace and answers queries", async () => {
   const wsDir = join(TEST_DIR, "kb-workspace");
   await mkdir(wsDir, { recursive: true });
-  await writeFile(join(wsDir, "README.md"), "# DaDa Project\n\nAn autonomous AI agent for task automation.", "utf8");
+  await writeFile(join(wsDir, "README.md"), "# MOMO Project\n\nAn autonomous AI agent for task automation.", "utf8");
   await writeFile(join(wsDir, "config.ts"), "export const plannerModel = 'builtin:default';\nexport const maxSteps = 25;", "utf8");
   await writeFile(join(wsDir, "tools.md"), "# Tools\n\n- shell.exec: run commands\n- search: web search\n- fs.write_file: save files", "utf8");
 

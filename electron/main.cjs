@@ -136,7 +136,7 @@ function createWindow() {
     minWidth: 800,
     minHeight: 600,
     title: "DaDa",
-    icon: path.join(__dirname, "..", "web", "dada-icon.jpg"),
+    icon: path.join(__dirname, "..", "web", "momo-icon.jpg"),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true

@@ -140,7 +140,7 @@ export class AutonomousEngine {
       `[AUTO-DECOMPOSE] Business objective: ${params.name}`,
       `Description: ${params.description}`,
       `Success criteria: ${params.successCriteria.join(", ")}`,
-      `Break this down into 3-6 concrete, executable sub-tasks. Each sub-task should be a single clear goal that DaDa can execute. Return ONLY a JSON array of { "goal": "...", "taskType": "..." }.`,
+      `Break this down into 3-6 concrete, executable sub-tasks. Each sub-task should be a single clear goal that MOMO can execute. Return ONLY a JSON array of { "goal": "...", "taskType": "..." }.`,
     ].join("\n");
 
     try {

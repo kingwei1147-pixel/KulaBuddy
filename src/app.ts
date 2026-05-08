@@ -266,7 +266,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   tools.register(createChartTool());
 
   // ── MCP Dynamic Loading (self-configuration) ─────────────────────
-  // DaDa can discover, install, and use MCP servers at runtime.
+  // MOMO can discover, install, and use MCP servers at runtime.
   // This is how it fills its own capability gaps.
   const mcpManager = createMcpManager(config.mcpDataDir || "./.agent/mcp");
   tools.setMcpManager(mcpManager);
@@ -481,7 +481,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   };
 
   const mainAgentHost = new AgentHost({
-    name: "dada-main",
+    name: "momo-main",
     role: "coordinator",
     capabilities: ["planning", "research", "code", "file_operations", "media", "web"],
     maxConcurrency: 3,
@@ -497,7 +497,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   // The coordinator delegates to them based on task type and required capabilities.
 
   const researcherHost = new AgentHost({
-    name: "dada-researcher",
+    name: "momo-researcher",
     role: "worker",
     capabilities: ["search", "web-fetch", "data-analysis", "research", "reporting", "market-analysis"],
     maxConcurrency: 2,
@@ -509,7 +509,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const engineerHost = new AgentHost({
-    name: "dada-engineer",
+    name: "momo-engineer",
     role: "worker",
     capabilities: ["code", "shell", "file-write", "testing", "debugging", "git", "deployment"],
     maxConcurrency: 2,
@@ -521,7 +521,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const mediaHost = new AgentHost({
-    name: "dada-media",
+    name: "momo-media",
     role: "worker",
     capabilities: ["image-generation", "video-generation", "voice", "chart", "design", "visual", "media-editing"],
     maxConcurrency: 2,
@@ -533,7 +533,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const reviewerHost = new AgentHost({
-    name: "dada-reviewer",
+    name: "momo-reviewer",
     role: "critic",
     capabilities: ["verification", "quality-check", "proofreading", "audit", "approval", "code-review"],
     maxConcurrency: 2,
@@ -545,7 +545,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const financeHost = new AgentHost({
-    name: "dada-finance",
+    name: "momo-finance",
     role: "worker",
     capabilities: ["financial-analysis", "data-analysis", "valuation", "forecasting", "investment", "chart"],
     maxConcurrency: 2,
@@ -557,7 +557,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const legalHost = new AgentHost({
-    name: "dada-legal",
+    name: "momo-legal",
     role: "worker",
     capabilities: ["legal-research", "contract-review", "compliance", "risk-assessment", "regulatory"],
     maxConcurrency: 2,
@@ -569,7 +569,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const hrHost = new AgentHost({
-    name: "dada-hr",
+    name: "momo-hr",
     role: "worker",
     capabilities: ["recruitment", "job-analysis", "screening", "onboarding", "training", "compensation"],
     maxConcurrency: 2,
@@ -581,7 +581,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const designerHost = new AgentHost({
-    name: "dada-designer",
+    name: "momo-designer",
     role: "worker",
     capabilities: ["architecture", "system-design", "tech-stack", "api-design", "deployment", "requirements"],
     maxConcurrency: 2,
@@ -593,7 +593,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const marketerHost = new AgentHost({
-    name: "dada-marketer",
+    name: "momo-marketer",
     role: "worker",
     capabilities: ["content-strategy", "audience-analysis", "seo", "content-calendar", "distribution", "analytics"],
     maxConcurrency: 2,
@@ -605,7 +605,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const supportHost = new AgentHost({
-    name: "dada-support",
+    name: "momo-support",
     role: "worker",
     capabilities: ["customer-support", "faq", "quality-assurance", "knowledge-base", "sla", "training"],
     maxConcurrency: 2,
@@ -617,7 +617,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const educationHost = new AgentHost({
-    name: "dada-education",
+    name: "momo-education",
     role: "worker",
     capabilities: ["education", "curriculum-design", "teaching", "assessment", "pedagogy", "e-learning"],
     maxConcurrency: 2,
@@ -629,7 +629,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const healthcareHost = new AgentHost({
-    name: "dada-healthcare",
+    name: "momo-healthcare",
     role: "worker",
     capabilities: ["healthcare", "diagnosis", "treatment-planning", "health-management", "medical-research", "patient-education"],
     maxConcurrency: 2,
@@ -641,7 +641,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const realEstateHost = new AgentHost({
-    name: "dada-real-estate",
+    name: "momo-real-estate",
     role: "worker",
     capabilities: ["real-estate", "property-valuation", "market-analysis", "investment-strategy", "property-management", "transaction-support"],
     maxConcurrency: 2,
@@ -653,7 +653,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const videoEditorHost = new AgentHost({
-    name: "dada-video-editor",
+    name: "momo-video-editor",
     role: "worker",
     capabilities: ["video-editing", "storyboard", "color-grading", "audio-mixing", "motion-graphics", "export-rendering"],
     maxConcurrency: 2,
@@ -665,7 +665,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const podcastHost = new AgentHost({
-    name: "dada-podcast-producer",
+    name: "momo-podcast-producer",
     role: "worker",
     capabilities: ["podcast-production", "script-writing", "voice-generation", "audio-production", "rss-management", "show-notes"],
     maxConcurrency: 2,
@@ -875,7 +875,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   const botManager = new BotManager({
     bots: (config.bots || []) as BotConfig[],
     onMessage: async (msg) => {
-      // Run bot messages through the DaDa runtime
+      // Run bot messages through the MOMO runtime
       const goal = `[${msg.platform}] ${msg.userName}: ${msg.text}`;
       try {
         const result = await runtime.runTask({
@@ -906,11 +906,11 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
       const { exec } = await import("node:child_process");
       const msg = `${title}: ${body}`;
       if (process.platform === "win32") {
-        exec(`powershell -Command "Add-Type -AssemblyName System.Windows.Forms; (New-Object System.Windows.Forms.NotifyIcon){New-Object System.Windows.Forms.NotifyIcon}.Visible = $true; (New-Object System.Windows.Forms.NotifyIcon).ShowBalloonTip(5000, 'DaDa', '${msg.replace(/'/g, "''")}', 'Info')"`);
+        exec(`powershell -Command "Add-Type -AssemblyName System.Windows.Forms; (New-Object System.Windows.Forms.NotifyIcon){New-Object System.Windows.Forms.NotifyIcon}.Visible = $true; (New-Object System.Windows.Forms.NotifyIcon).ShowBalloonTip(5000, 'MOMO', '${msg.replace(/'/g, "''")}', 'Info')"`);
       } else if (process.platform === "darwin") {
-        exec(`osascript -e 'display notification "${msg.replace(/"/g, "\\\"")}" with title "DaDa"'`);
+        exec(`osascript -e 'display notification "${msg.replace(/"/g, "\\\"")}" with title "MOMO"'`);
       } else {
-        exec(`notify-send "DaDa" "${msg.replace(/"/g, "\\\"")}"`);
+        exec(`notify-send "MOMO" "${msg.replace(/"/g, "\\\"")}"`);
       }
     },
   });

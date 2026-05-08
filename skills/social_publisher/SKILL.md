@@ -13,7 +13,7 @@ triggers:
 
 # Social Publisher Skill
 
-Use this skill when the task asks DaDa to research topics, write social content, and publish or prepare content for a social platform.
+Use this skill when the task asks MOMO to research topics, write social content, and publish or prepare content for a social platform.
 
 ## Workflow
 

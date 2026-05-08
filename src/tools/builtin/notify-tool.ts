@@ -70,7 +70,7 @@ async function sendEmail(to: string, subject: string, body: string): Promise<Not
   const port = shellEscape(process.env.SMTP_PORT || "587");
   const user = shellEscape(process.env.SMTP_USER || "");
   const pass = shellEscape(process.env.SMTP_PASS || "");
-  const from = shellEscape(process.env.SMTP_FROM || "dada@agent.local");
+  const from = shellEscape(process.env.SMTP_FROM || "momo@agent.local");
 
   // Write email script to temp file instead of inline to avoid injection
   const scriptContent = `

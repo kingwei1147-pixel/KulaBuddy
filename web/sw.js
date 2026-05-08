@@ -1,12 +1,12 @@
-// DaDa Service Worker — PWA offline support
-const CACHE_NAME = "dada-v21";
+// MOMO Service Worker — PWA offline support
+const CACHE_NAME = "momo-v22";
 const STATIC_ASSETS = [
   "/",
   "/index.html",
   "/app.js",
   "/styles.css",
-  "/manifest.json",
-  "/dada-icon.jpg"
+  "/manifest.json?v=2",
+  "/momo-icon.jpg?v=2"
 ];
 
 // Install: pre-cache static assets
@@ -83,13 +83,13 @@ self.addEventListener("fetch", (event) => {
 
 // Push notification support
 self.addEventListener("push", (event) => {
-  const data = event.data?.json() || { title: "DaDa", body: "Task update" };
+  const data = event.data?.json() || { title: "MOMO", body: "Task update" };
   event.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
-      icon: "/dada-icon.jpg",
-      badge: "/dada-icon.jpg",
-      tag: data.tag || "dada-update",
+      icon: "/momo-icon.jpg",
+      badge: "/momo-icon.jpg",
+      tag: data.tag || "momo-update",
       data: data,
       requireInteraction: data.requireInteraction || false
     })

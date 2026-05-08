@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { AutomationRegistry } from "../automation/automation-registry.js";
 
 test("automation registry creates and updates interval automations", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-automation-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-automation-"));
 
   try {
     const registry = new AutomationRegistry(join(tempDir, "automations.json"));

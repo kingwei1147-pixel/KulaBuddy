@@ -247,7 +247,7 @@ test("agent runtime pauses when checkPause returns true", async () => {
 // ── Test: task resumes from paused state ─────────────────────────────────────────
 
 test("agent runtime resumes from persisted state machine", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-e2e-resume-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-e2e-resume-"));
   try {
     // This test validates the pause/resume flow end-to-end:
     // 1. Run a task with checkPause that pauses after 2nd cycle

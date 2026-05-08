@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { createCodeAgentTool } from "../tools/builtin/code-agent-tool.js";
 
 test("code.agent creates a coding plan artifact", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "dada-code-agent-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "momo-code-agent-"));
   try {
     const tool = createCodeAgentTool(tempDir, async () =>
       JSON.stringify({

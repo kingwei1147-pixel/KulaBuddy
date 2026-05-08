@@ -1,4 +1,4 @@
-// DaDa UI — app.js
+// MOMO UI — app.js
 'use strict';
 
 // ── i18n translations ─────────────────────────────────────────────────────────────
@@ -67,7 +67,7 @@ const T = {
     type: 'Type',
     format: 'Format',
     model: 'Model',
-    whatToDo: 'What do you want DaDa to do?',
+    whatToDo: 'What do you want MOMO to do?',
     knowledgeBase: 'Knowledge Base',
     kbFiles: 'Files',
     kbChunks: 'Chunks',
@@ -148,7 +148,7 @@ const T = {
     type: '类型',
     format: '格式',
     model: '模型',
-    whatToDo: '你想让 DaDa 做什么？',
+    whatToDo: '你想让 MOMO 做什么？',
     knowledgeBase: '知识库',
     kbFiles: '文件',
     kbChunks: '块',
@@ -168,7 +168,7 @@ const T = {
 };
 
 function t(key) {
-  const locale = (() => { try { return localStorage.getItem('dada-locale') || 'en'; } catch { return 'en'; } })();
+  const locale = (() => { try { return localStorage.getItem('momo-locale') || 'en'; } catch { return 'en'; } })();
   return (T[locale] && T[locale][key]) ? T[locale][key] : (T.en[key] || key);
 }
 
@@ -378,7 +378,7 @@ function setRunButtonLoading(loading) {
 
 // ── Theme ───────────────────────────────────────────────────────────────────────
 function initTheme() {
-  const saved = (() => { try { return localStorage.getItem('dada-theme'); } catch { return null; } })();
+  const saved = (() => { try { return localStorage.getItem('momo-theme'); } catch { return null; } })();
   const select = document.getElementById('settings-theme');
   if (select && saved) select.value = saved;
   applyTheme(saved || 'pearl');
@@ -386,7 +386,7 @@ function initTheme() {
   // Listen for system theme changes when in auto mode
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      const current = (() => { try { return localStorage.getItem('dada-theme'); } catch { return null; } })();
+      const current = (() => { try { return localStorage.getItem('momo-theme'); } catch { return null; } })();
       if (current === 'auto') applyTheme('auto');
     });
   }
@@ -395,7 +395,7 @@ function initTheme() {
   if (select) {
     select.addEventListener('change', () => {
       applyTheme(select.value);
-      try { localStorage.setItem('dada-theme', select.value); } catch {}
+      try { localStorage.setItem('momo-theme', select.value); } catch {}
     });
   }
 }
@@ -531,7 +531,7 @@ const PERSONA_MAP = {
 function getPersonaBadge(taskType) {
   const p = PERSONA_MAP[taskType];
   if (!p) return '';
-  return `<span class="persona-badge" title="DaDa 当前身份：${p.name}">${p.icon} ${p.name}</span>`;
+  return `<span class="persona-badge" title="MOMO 当前身份：${p.name}">${p.icon} ${p.name}</span>`;
 }
 
 // ── Quick task type inference ────────────────────────────────────────────────────
@@ -798,7 +798,7 @@ function log(msg) {
   S.progressEvents.push(msg);
   if (S.progressEvents.length > 300) S.progressEvents.shift();
   // Timeline replaces the old #task-log; messages go to timeline steps
-  console.log('[dada]', msg);
+  console.log('[momo]', msg);
 }
 
 // ── SSE Watching ────────────────────────────────────────────────────────────────
@@ -1205,7 +1205,7 @@ function addThinkingIndicator(taskId) {
   bubble.innerHTML =
     `<div class="thread-msg-bubble">` +
       `<div class="thinking-dots"><span></span><span></span><span></span></div>` +
-      `<span class="thinking-text">DaDa is thinking...</span>` +
+      `<span class="thinking-text">MOMO is thinking...</span>` +
     `</div>`;
   msgList.appendChild(bubble);
   msgList.scrollTop = msgList.scrollHeight;
@@ -2095,7 +2095,7 @@ async function loadConfig() {
     setSelectVal('settings-approval-policy', data.approvalPolicyPreset);
 
     // Locale
-    const savedLocale = (() => { try { return localStorage.getItem('dada-locale'); } catch { return null; } })();
+    const savedLocale = (() => { try { return localStorage.getItem('momo-locale'); } catch { return null; } })();
     setSelectVal('settings-locale', savedLocale || data.locale || 'en');
 
     // Env list
@@ -2236,7 +2236,7 @@ async function saveLocale() {
     await api('/api/config/locale', { method: 'POST', body: { locale } });
     showFeedback('locale-save-feedback', true, t('savedRefresh'));
     // Persist to localStorage for immediate UI effect
-    try { localStorage.setItem('dada-locale', locale); } catch {}
+    try { localStorage.setItem('momo-locale', locale); } catch {}
     // Apply translations immediately
     applyLocale(locale);
     // Refresh model display and tools with new locale
@@ -2451,7 +2451,7 @@ function enterProjectWorkspace(project) {
   S.view = 'workspace';
   S.activeTaskId = null;
   S.activeProjectTasks = [];
-  try { localStorage.setItem('dada-active-project', JSON.stringify(project)); } catch {}
+  try { localStorage.setItem('momo-active-project', JSON.stringify(project)); } catch {}
 
   // Toggle visibility
   document.getElementById('home-view').style.display = 'none';
@@ -2488,7 +2488,7 @@ function leaveProjectWorkspace() {
   S.activeTaskId = null;
   S.view = 'home';
   S.activeProjectTasks = [];
-  try { localStorage.removeItem('dada-active-project'); } catch {}
+  try { localStorage.removeItem('momo-active-project'); } catch {}
 
   document.getElementById('project-panel').style.display = 'none';
   document.getElementById('chat-workspace').style.display = '';
@@ -2945,14 +2945,14 @@ async function init() {
 
   // Apply locale from saved preference
   try {
-    const savedLocale = localStorage.getItem('dada-locale') || (S.config?.locale) || 'en';
+    const savedLocale = localStorage.getItem('momo-locale') || (S.config?.locale) || 'en';
     document.getElementById('settings-locale').value = savedLocale;
     applyLocale(savedLocale);
   } catch (err) { console.warn('applyLocale failed:', err.message); }
 
   // Restore workspace state from localStorage
   try {
-    const saved = localStorage.getItem('dada-active-project');
+    const saved = localStorage.getItem('momo-active-project');
     if (saved) {
       const project = JSON.parse(saved);
       const found = S.projects.find(p => p.id === project.id);
@@ -2960,7 +2960,7 @@ async function init() {
         enterProjectWorkspace(found);
       } else {
         S.activeProject = null;
-        localStorage.removeItem('dada-active-project');
+        localStorage.removeItem('momo-active-project');
         document.querySelector('.main').classList.add('standalone');
         renderHomeView();
       }
@@ -3326,7 +3326,7 @@ async function marketplaceInstall(name) {
     const s = document.getElementById('marketplace-status');
     if (data.success) {
       s.className = 'marketplace-status success';
-      s.textContent = 'Installed ' + name + ' successfully. Restart DaDa if needed.';
+      s.textContent = 'Installed ' + name + ' successfully. Restart MOMO if needed.';
       setTimeout(() => { s.className = 'marketplace-status'; }, 5000);
       await loadMarketplaceInstalled();
     } else {

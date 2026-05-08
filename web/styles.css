@@ -1,4 +1,4 @@
-/* DaDa UI — Neon-Futuristic Glassmorphism Dark Theme v0.9.4 */
+/* MOMO UI — Neon-Futuristic Glassmorphism Dark Theme v0.9.4 */
 
 /* ══════════════════════════════════════════════════════════════════════
    CSS VARIABLES
@@ -140,6 +140,15 @@
   0%   { filter: hue-rotate(0deg); }
   50%  { filter: hue-rotate(15deg); }
   100% { filter: hue-rotate(0deg); }
+}
+
+/* ── Custom background image ────────────────────────────────────── */
+#app {
+  background-image: url("/2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* Pearl theme — iridescent pearlescent shimmer, immersive luminous material */
@@ -610,7 +619,7 @@ body.minimized #app:hover {
 
 /* Minimize hint tab */
 body.minimized::after {
-  content: 'DaDa ▼';
+  content: 'MOMO ▼';
   position: fixed;
   bottom: 0;
   left: 50%;
@@ -2997,7 +3006,7 @@ textarea#goal:focus,
   width: 56px;
   height: 56px;
   border-radius: 16px;
-  background: url('/dada-icon.jpg') center/cover no-repeat;
+  background: url('/momo-icon.jpg') center/cover no-repeat;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.2),
     0 0 24px rgba(125,184,255,0.15),
