@@ -148,25 +148,38 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   await modelManager.initialize();
 
   const builtinProvider = new BuiltInModelProvider({ modelManager });
-  const localProvider = new LocalProvider({ endpoint: config.localModelEndpoint });
-  const lmstudioProvider = new OpenAICompatibleProvider({ providerName: "lmstudio", endpoint: config.lmstudioEndpoint, includeTools: true });
-  const vllmProvider = new OpenAICompatibleProvider({ providerName: "vllm", endpoint: config.vllmEndpoint, includeTools: true });
-  const llamaCppProvider = new OpenAICompatibleProvider({ providerName: "llama-cpp", endpoint: config.llamaCppEndpoint, includeTools: true });
+  let localProvider: LocalProvider | null = null;
+  let lmstudioProvider: OpenAICompatibleProvider | null = null;
+  let vllmProvider: OpenAICompatibleProvider | null = null;
+  let llamaCppProvider: OpenAICompatibleProvider | null = null;
 
-  const localProviders: ModelProvider[] = [
-    localProvider,
-    lmstudioProvider,
-    vllmProvider,
-    llamaCppProvider,
-    builtinProvider
-  ];
+  const localProviders: ModelProvider[] = [builtinProvider];
 
-  const cloudProvider = new CloudProvider({
-    endpoint: config.cloudModelEndpoint,
-    apiKey: config.cloudApiKey
-  });
+  if (config.localModelEndpoint) {
+    localProvider = new LocalProvider({ endpoint: config.localModelEndpoint });
+    localProviders.push(localProvider);
+  }
+  if (config.lmstudioEndpoint) {
+    lmstudioProvider = new OpenAICompatibleProvider({ providerName: "lmstudio", endpoint: config.lmstudioEndpoint, includeTools: true });
+    localProviders.push(lmstudioProvider);
+  }
+  if (config.vllmEndpoint) {
+    vllmProvider = new OpenAICompatibleProvider({ providerName: "vllm", endpoint: config.vllmEndpoint, includeTools: true });
+    localProviders.push(vllmProvider);
+  }
+  if (config.llamaCppEndpoint) {
+    llamaCppProvider = new OpenAICompatibleProvider({ providerName: "llama-cpp", endpoint: config.llamaCppEndpoint, includeTools: true });
+    localProviders.push(llamaCppProvider);
+  }
 
-  const allProviders = [...localProviders, cloudProvider];
+  let cloudProvider: CloudProvider | null = null;
+  if (config.cloudApiKey) {
+    cloudProvider = new CloudProvider({ endpoint: config.cloudModelEndpoint, apiKey: config.cloudApiKey });
+  }
+
+  const allProviders = cloudProvider
+    ? [...localProviders, cloudProvider]
+    : localProviders;
   // Domain engine and domain tool for vertical tasks
   const domainEngine = getDomainEngine();
   domainEngine.register({ id: "market-analysis", name: "Market Analysis", keywords: ["market", "分析"] });
@@ -181,14 +194,11 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
 
   const router = new ModelRouter(allProviders, [
     { match: (r) => r.model.startsWith("builtin:"), providerName: "builtin" },
-    {
-      match: (r) => r.model.startsWith("ollama:") || r.model.startsWith("local:"),
-      providerName: "ollama-compatible"
-    },
-    { match: (r) => r.model.startsWith("lmstudio:"), providerName: "lmstudio" },
-    { match: (r) => r.model.startsWith("vllm:"), providerName: "vllm" },
-    { match: (r) => r.model.startsWith("llama-cpp:") || r.model.startsWith("llamacpp:"), providerName: "llama-cpp" },
-    { match: (r) => r.model.startsWith("cloud:"), providerName: "openai-compatible" },
+    ...(config.localModelEndpoint ? [{ match: (r: any) => r.model.startsWith("ollama:") || r.model.startsWith("local:"), providerName: "ollama-compatible" }] : []),
+    ...(config.lmstudioEndpoint ? [{ match: (r: any) => r.model.startsWith("lmstudio:"), providerName: "lmstudio" }] : []),
+    ...(config.vllmEndpoint ? [{ match: (r: any) => r.model.startsWith("vllm:"), providerName: "vllm" }] : []),
+    ...(config.llamaCppEndpoint ? [{ match: (r: any) => r.model.startsWith("llama-cpp:") || r.model.startsWith("llamacpp:"), providerName: "llama-cpp" }] : []),
+    ...(config.cloudApiKey ? [{ match: (r: any) => r.model.startsWith("cloud:"), providerName: "openai-compatible" }] : []),
     {
       match: () => true,
       providerName: getProviderNameForModel(config.plannerModel, {
@@ -985,27 +995,27 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
     }
     if (typeof input.cloudModelEndpoint === "string" && input.cloudModelEndpoint.trim()) {
       config.cloudModelEndpoint = input.cloudModelEndpoint.trim();
-      cloudProvider.configure({ endpoint: config.cloudModelEndpoint });
+      cloudProvider?.configure({ endpoint: config.cloudModelEndpoint });
     }
     if ("cloudApiKey" in input) {
       config.cloudApiKey = input.cloudApiKey?.trim() || undefined;
-      cloudProvider.configure({ apiKey: config.cloudApiKey });
+      cloudProvider?.configure({ apiKey: config.cloudApiKey });
     }
     if (typeof input.localModelEndpoint === "string" && input.localModelEndpoint.trim()) {
       config.localModelEndpoint = input.localModelEndpoint.trim();
-      localProvider.configure({ endpoint: config.localModelEndpoint });
+      localProvider?.configure({ endpoint: config.localModelEndpoint });
     }
     if (typeof input.lmstudioEndpoint === "string" && input.lmstudioEndpoint.trim()) {
       config.lmstudioEndpoint = input.lmstudioEndpoint.trim();
-      lmstudioProvider.configure({ endpoint: config.lmstudioEndpoint });
+      lmstudioProvider?.configure({ endpoint: config.lmstudioEndpoint });
     }
     if (typeof input.vllmEndpoint === "string" && input.vllmEndpoint.trim()) {
       config.vllmEndpoint = input.vllmEndpoint.trim();
-      vllmProvider.configure({ endpoint: config.vllmEndpoint });
+      vllmProvider?.configure({ endpoint: config.vllmEndpoint });
     }
     if (typeof input.llamaCppEndpoint === "string" && input.llamaCppEndpoint.trim()) {
       config.llamaCppEndpoint = input.llamaCppEndpoint.trim();
-      llamaCppProvider.configure({ endpoint: config.llamaCppEndpoint });
+      llamaCppProvider?.configure({ endpoint: config.llamaCppEndpoint });
     }
     if (typeof input.comfyuiEndpoint === "string" && input.comfyuiEndpoint.trim()) {
       config.comfyuiEndpoint = input.comfyuiEndpoint.trim();

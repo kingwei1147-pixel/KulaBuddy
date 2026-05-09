@@ -4,13 +4,13 @@ import type { ApprovalPolicyPreset } from "./governance/approval-policy.js";
 import { loadEnvironmentFiles } from "./env.js";
 
 const EnvSchema = z.object({
-  LOCAL_MODEL_ENDPOINT: z.string().default("http://127.0.0.1:11434"),
-  LMSTUDIO_ENDPOINT: z.string().default("http://127.0.0.1:1234/v1"),
-  VLLM_ENDPOINT: z.string().default("http://127.0.0.1:8000/v1"),
-  LLAMA_CPP_ENDPOINT: z.string().default("http://127.0.0.1:8080/v1"),
-  CLOUD_MODEL_ENDPOINT: z.string().default("https://integrate.api.nvidia.com/v1"),
+  LOCAL_MODEL_ENDPOINT: z.string().default(""),
+  LMSTUDIO_ENDPOINT: z.string().default(""),
+  VLLM_ENDPOINT: z.string().default(""),
+  LLAMA_CPP_ENDPOINT: z.string().default(""),
+  CLOUD_MODEL_ENDPOINT: z.string().default("https://api.deepseek.com/v1"),
   CLOUD_API_KEY: z.string().optional(),
-  COMFYUI_ENDPOINT: z.string().default("http://127.0.0.1:8188"),
+  COMFYUI_ENDPOINT: z.string().default(""),
   OPENAI_IMAGE_MODEL: z.string().default("gpt-image-1"),
   OPENAI_TTS_MODEL: z.string().default("gpt-4o-mini-tts"),
   OPENAI_TTS_VOICE: z.string().default("alloy"),
