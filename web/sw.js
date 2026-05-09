@@ -1,5 +1,5 @@
 // KulaBuddy Service Worker — PWA offline support
-const CACHE_NAME = "kulabuddy-v22";
+const CACHE_NAME = "kulabuddy-v23";
 const STATIC_ASSETS = [
   "/",
   "/index.html",
