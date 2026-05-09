@@ -54,3 +54,4 @@ export async function handlePostClear(ctx: ServerContext) {
     data: { ok: true, message: "Knowledge base cleared" }
   };
 }
+

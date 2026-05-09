@@ -154,3 +154,4 @@ export class AuditLog {
     await this.flushToDisk();
   }
 }
+

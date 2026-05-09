@@ -31,3 +31,4 @@ test("serveStaticAsset serves jpeg assets with image content type", async () => 
     rmSync(tempDir, { recursive: true, force: true });
   }
 });
+

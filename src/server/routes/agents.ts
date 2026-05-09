@@ -28,3 +28,4 @@ export async function handleGetDelegations(ctx: ServerContext) {
     createdAt: r.createdAt
   }))};
 }
+

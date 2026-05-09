@@ -210,3 +210,4 @@ export async function isDockerAvailable(): Promise<boolean> {
   const sandbox = new DockerSandbox({ hostWorkdir: "/tmp" });
   return sandbox.isAvailable();
 }
+

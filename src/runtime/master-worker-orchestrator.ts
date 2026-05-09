@@ -148,3 +148,4 @@ function inferRole(description: string): string {
   if (/plan|coordinate|orchestrate|规划|协调|编排/.test(lower)) return "coordinator";
   return "engineer"; // default
 }
+

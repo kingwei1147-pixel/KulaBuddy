@@ -376,3 +376,4 @@ async function transcribeWithOpenAI(
     return null;
   }
 }
+

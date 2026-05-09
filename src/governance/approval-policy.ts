@@ -100,3 +100,4 @@ export function evaluateApprovalPolicy(
 
   return { action: "require_approval", reason: "High-risk tool does not match an auto-allow policy" };
 }
+

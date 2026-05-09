@@ -162,3 +162,4 @@ test("weather query routes to weather with simple complexity", () => {
   assert.equal(intent.taskType, "weather");
   assert.equal(intent.complexity, "simple");
 });
+

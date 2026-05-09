@@ -196,3 +196,4 @@ export class StrategyAdvisor {
     return this.knownPitfalls.size;
   }
 }
+

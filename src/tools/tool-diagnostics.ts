@@ -242,3 +242,4 @@ export function formatDiagnosis(diag: Diagnosis): string {
 function truncate(s: string, max: number): string {
   return s.length <= max ? s : s.substring(0, max - 3) + "...";
 }
+

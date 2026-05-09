@@ -545,3 +545,4 @@ export class SelfEvolver {
     await writeFile(join(skillDir, "meta.json"), JSON.stringify(meta, null, 2), "utf8");
   }
 }
+

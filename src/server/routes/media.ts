@@ -80,3 +80,4 @@ export async function handlePostMediaGenerate(
   });
   return { status: output.result.success ? 201 : 502, data: output };
 }
+

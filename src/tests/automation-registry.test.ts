@@ -28,3 +28,4 @@ test("automation registry creates and updates interval automations", async () =>
     rmSync(tempDir, { recursive: true, force: true });
   }
 });
+

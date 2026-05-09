@@ -229,3 +229,4 @@ export async function checkVisionCapability(modelManager?: ModelManager): Promis
   if (hasCloudApi) return { available: true };
   return { available: false, reason: "No multimodal model (llava/gemma-3 etc.) in models/ and no OPENAI_API_KEY set" };
 }
+

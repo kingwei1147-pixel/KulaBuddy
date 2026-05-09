@@ -228,3 +228,4 @@ test("KnowledgeBase handles empty workspace gracefully", async () => {
 
   await rm(emptyDir, { recursive: true, force: true });
 });
+

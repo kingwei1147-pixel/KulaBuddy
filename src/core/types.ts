@@ -242,3 +242,4 @@ export interface TaskArtifact {
   mimeType: string;
   size?: number;
 }
+

@@ -73,3 +73,4 @@ export class LegalReviewWorkflow extends DomainWorkflow {
   name = "法务审查";
   steps = STEPS;
 }
+

@@ -204,3 +204,4 @@ export class ToolRegistry {
     return tool.executeStream(input as never, context, onProgress);
   }
 }
+

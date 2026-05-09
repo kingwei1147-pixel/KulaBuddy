@@ -69,3 +69,4 @@ test("tool registry requests approval for high-risk tool and allows approved ret
     rmSync(tempDir, { recursive: true, force: true });
   }
 });
+

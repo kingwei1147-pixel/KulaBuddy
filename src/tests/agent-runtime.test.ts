@@ -453,3 +453,4 @@ test("agent runtime runs critic after executing tools", async () => {
   const reflectSteps = result.steps.filter(s => s.action === "reflect");
   assert.equal(reflectSteps.length >= 1, true, "Should have reflect steps from critic");
 });
+

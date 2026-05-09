@@ -246,3 +246,4 @@ export async function checkDatabaseCapability(): Promise<{ available: boolean; r
     return { available: false, reason: "sql.js WASM engine failed to initialize" };
   }
 }
+

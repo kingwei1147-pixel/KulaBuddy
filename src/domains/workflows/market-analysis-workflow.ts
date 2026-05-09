@@ -227,3 +227,4 @@ export class MarketAnalysisWorkflow extends DomainWorkflow {
   name = "市场分析";
   steps = MARKET_ANALYSIS_STEPS;
 }
+

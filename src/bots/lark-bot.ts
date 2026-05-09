@@ -218,3 +218,4 @@ export class LarkBot implements BotAdapter {
     };
   }
 }
+

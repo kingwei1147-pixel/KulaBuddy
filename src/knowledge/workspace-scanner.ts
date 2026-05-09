@@ -145,3 +145,4 @@ function matchesPattern(filename: string, patterns: string[]): boolean {
   }
   return false;
 }
+

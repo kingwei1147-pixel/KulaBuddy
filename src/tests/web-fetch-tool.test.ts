@@ -54,3 +54,4 @@ test("web-fetch respects maxChars option", async () => {
   // On failure (which we expect for this nonexistent host), verify error structure
   assert.ok(result.body !== undefined || result.error !== undefined);
 });
+

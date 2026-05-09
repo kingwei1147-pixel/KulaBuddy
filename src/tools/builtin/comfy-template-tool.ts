@@ -135,3 +135,4 @@ function stripBuild(tpl: ComfyTemplate): TemplateSummary {
     params: tpl.params,
   };
 }
+

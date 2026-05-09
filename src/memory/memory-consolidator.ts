@@ -223,3 +223,4 @@ function cosineSim(a: number[], b: number[]): number {
   const denom = Math.sqrt(na) * Math.sqrt(nb);
   return denom === 0 ? 0 : dot / denom;
 }
+

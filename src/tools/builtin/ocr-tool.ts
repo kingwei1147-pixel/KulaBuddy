@@ -77,3 +77,4 @@ export async function checkOcrCapability(): Promise<{ available: boolean; reason
     return { available: false, reason: "tesseract.js WASM engine failed to load" };
   }
 }
+

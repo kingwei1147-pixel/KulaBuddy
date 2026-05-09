@@ -41,3 +41,4 @@ test("endpoint joining avoids duplicated version segments", () => {
     "http://127.0.0.1:11434/api/tags"
   );
 });
+

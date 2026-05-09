@@ -26,3 +26,4 @@ test("sandbox policy blocks unconfigured command", () => {
 
   assert.throws(() => policy.assertShellCommand("python app.py"));
 });
+

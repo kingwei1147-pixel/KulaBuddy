@@ -29,3 +29,4 @@ test("model profiles expose active local-only strategy", () => {
   assert.equal(localOnly?.active, true);
   assert.equal(localOnly?.ready, true);
 });
+

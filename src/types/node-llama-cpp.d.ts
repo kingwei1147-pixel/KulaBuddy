@@ -7,3 +7,4 @@ declare module "node-llama-cpp" {
     loadModel(options: { modelPath: string }): Promise<unknown>;
   }
 }
+

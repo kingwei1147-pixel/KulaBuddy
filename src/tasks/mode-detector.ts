@@ -113,3 +113,4 @@ export function detectExecutionMode(
 
   return { executionMode: mode, recommendedCollaboration: collab, confidence, reasons };
 }
+

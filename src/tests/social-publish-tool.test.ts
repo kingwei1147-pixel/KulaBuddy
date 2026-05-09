@@ -40,3 +40,4 @@ test("publish.package creates a safe publishing package instead of claiming a po
     rmSync(tempDir, { recursive: true, force: true });
   }
 });
+

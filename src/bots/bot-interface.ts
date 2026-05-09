@@ -83,3 +83,4 @@ export interface BotAdapter {
   /** Health check */
   healthCheck(): Promise<boolean>;
 }
+

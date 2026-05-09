@@ -209,3 +209,4 @@ export async function checkBrowserCapability(): Promise<{ available: boolean; re
     return { available: false, reason: "Playwright not installed. Run: npm install playwright && npx playwright install chromium" };
   }
 }
+

@@ -87,3 +87,4 @@ export function createMcpInstallTool(mcpManager: McpManager): ToolDefinition<Mcp
     },
   };
 }
+

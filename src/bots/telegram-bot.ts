@@ -153,3 +153,4 @@ export class TelegramBot implements BotAdapter {
     poll();
   }
 }
+

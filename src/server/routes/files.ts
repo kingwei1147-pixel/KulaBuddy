@@ -36,3 +36,4 @@ export async function handlePostUpload(
   const attachment = await ctx.uploadStore.save({ name, mimeType, dataBase64 });
   return { status: 201, data: { attachment, url: ctx.uploadStore.toPublicUrl(attachment) } };
 }
+

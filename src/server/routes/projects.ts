@@ -62,3 +62,4 @@ export async function handleGetProjectTasks(ctx: ServerContext, id: string) {
   const projectTasks = tasks.filter((t) => (t as any).projectId === id);
   return { status: 200, data: { project, tasks: projectTasks } };
 }
+

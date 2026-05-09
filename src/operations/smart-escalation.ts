@@ -155,3 +155,4 @@ export class SmartEscalation {
     return { ...this.config };
   }
 }
+

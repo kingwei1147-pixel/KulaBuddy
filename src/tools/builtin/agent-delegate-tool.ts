@@ -137,3 +137,4 @@ export function createAgentListTool(agentRegistry: AgentRegistry): ToolDefinitio
     }
   };
 }
+

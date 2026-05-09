@@ -154,3 +154,4 @@ test("gen.media capability: available with DeepSeek cloud + ComfyUI fallback", a
   });
   assert.equal(result.available, true);
 });
+

@@ -36,3 +36,4 @@ test("approval store creates, approves, and consumes approval", async () => {
     rmSync(tempDir, { recursive: true, force: true });
   }
 });
+

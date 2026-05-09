@@ -131,3 +131,4 @@ export function translateDescription(desc: string, locale: Locale): string {
   if (translations[desc]) return translations[desc][locale] ?? desc;
   return desc;
 }
+

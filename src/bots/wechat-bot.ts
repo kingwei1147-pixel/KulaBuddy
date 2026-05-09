@@ -174,3 +174,4 @@ export class WeChatBot implements BotAdapter {
     return this.accessToken!;
   }
 }
+

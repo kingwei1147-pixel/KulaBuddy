@@ -42,3 +42,4 @@ test("strict approval policy always requires approval for high-risk tools", () =
 
   assert.equal(decision.action, "require_approval");
 });
+

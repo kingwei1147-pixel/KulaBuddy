@@ -204,3 +204,4 @@ export function loadConfig(env: NodeJS.ProcessEnv): AppConfig {
     locale: parsed.LOCALE,
   };
 }
+

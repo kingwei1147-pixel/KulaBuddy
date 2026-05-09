@@ -361,3 +361,4 @@ test("multi-agent coordination: registry + delegation + context bus", async () =
 
   registry.stop();
 });
+

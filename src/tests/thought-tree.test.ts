@@ -339,3 +339,4 @@ test("deep tree with branching at multiple levels", async () => {
   const steps = planner.getBestPathSteps();
   assert.ok(steps.length >= 2, `Expected >=2 steps, got ${steps.length}`);
 });
+

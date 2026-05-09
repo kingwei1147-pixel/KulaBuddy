@@ -71,3 +71,4 @@ test("artifact generator bundles report outputs for product research", async () 
     rmSync(tempDir, { recursive: true, force: true });
   }
 });
+

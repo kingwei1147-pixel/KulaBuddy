@@ -75,3 +75,4 @@ export function selectFailureReplayCandidates(
     .sort((a, b) => (b.completedAt ?? b.updatedAt ?? b.createdAt).localeCompare(a.completedAt ?? a.updatedAt ?? a.createdAt))
     .slice(0, Math.max(0, limit));
 }
+

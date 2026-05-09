@@ -379,3 +379,4 @@ export function checkVoiceCapability(): { available: boolean; reason?: string } 
   if (isWin || isMac) return { available: true };
   return { available: false, reason: "System TTS not available on Linux. Install espeak-ng: sudo apt install espeak-ng" };
 }
+

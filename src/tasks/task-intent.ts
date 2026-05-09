@@ -969,3 +969,4 @@ export function resolveArtifactFormats(
 
   return intent.delivery.artifactBundle;
 }
+

@@ -114,3 +114,4 @@ export class DingTalkBot implements BotAdapter {
     return this._status === "connected";
   }
 }
+

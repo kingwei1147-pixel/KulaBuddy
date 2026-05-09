@@ -146,3 +146,4 @@ export function createWeatherTool(): ToolDefinition<WeatherInput, WeatherOutput>
     }
   };
 }
+

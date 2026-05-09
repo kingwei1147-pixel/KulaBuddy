@@ -455,3 +455,4 @@ export async function checkGenerativeMediaCapability(options: GenerativeMediaOpt
 
   return { available: true };
 }
+

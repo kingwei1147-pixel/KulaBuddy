@@ -57,3 +57,4 @@ export class UploadStore {
     return `/api/uploads/file?path=${encodeURIComponent(attachment.path)}`;
   }
 }
+

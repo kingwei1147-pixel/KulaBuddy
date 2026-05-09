@@ -27,3 +27,4 @@ export const echoTool: ToolDefinition<EchoInput, EchoOutput> = {
     };
   }
 };
+

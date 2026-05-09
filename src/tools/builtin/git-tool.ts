@@ -115,3 +115,4 @@ export function checkGitCapability(): { available: boolean; reason?: string } {
     return { available: false, reason: "Git not found. Install from git-scm.com" };
   }
 }
+

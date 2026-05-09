@@ -106,3 +106,4 @@ export function createApiRequestTool(allowlist: string[]): ToolDefinition<ApiReq
     }
   };
 }
+

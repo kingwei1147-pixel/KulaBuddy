@@ -163,3 +163,4 @@ export function createChartTool(): ToolDefinition<ChartInput, ChartOutput> {
     },
   };
 }
+

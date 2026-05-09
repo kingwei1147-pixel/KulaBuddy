@@ -427,3 +427,4 @@ export async function handleGetProductCapabilities(ctx: ServerContext) {
   });
   return { capabilities };
 }
+

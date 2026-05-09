@@ -2654,3 +2654,4 @@ Write in a professional, report-ready tone. Output ONLY the markdown report, no 
     if (models.criticModel) this.deps.criticModel = models.criticModel;
   }
 }
+

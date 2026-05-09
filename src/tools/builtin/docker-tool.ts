@@ -212,3 +212,4 @@ export async function checkDockerCapability(): Promise<{ available: boolean; rea
   }
   return { available: false, reason: installGuide() };
 }
+

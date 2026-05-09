@@ -112,3 +112,4 @@ export function joinEndpoint(base: string, path: string): string {
     return `${normalizedBase}${normalizedPath}`;
   }
 }
+

@@ -37,3 +37,4 @@ export function createKnowledgeSearchTool(kb: KnowledgeBase): ToolDefinition<Kno
     }
   };
 }
+

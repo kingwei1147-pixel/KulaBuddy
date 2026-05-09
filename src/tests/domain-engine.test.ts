@@ -17,3 +17,4 @@ test("domain engine routes Chinese product goals", async () => {
   assert.match(plan, /PLAN product-design/);
   assert.match(plan, /domain\.product-design/);
 });
+

@@ -72,3 +72,4 @@ test("failure replay candidate selection skips already replayed tasks", () => {
 
   assert.deepEqual(candidates.map((item) => item.taskId), ["failed-1"]);
 });
+

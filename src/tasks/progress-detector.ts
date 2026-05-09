@@ -142,3 +142,4 @@ export class ProgressDetector {
     this.toolHistory = new Set();
   }
 }
+

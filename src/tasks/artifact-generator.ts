@@ -714,3 +714,4 @@ export class ArtifactGenerator {
     return [...directArtifacts, ...artifacts];
   }
 }
+

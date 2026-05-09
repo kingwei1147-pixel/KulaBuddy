@@ -61,3 +61,4 @@ export class HrRecruitmentWorkflow extends DomainWorkflow {
   name = "HR招聘";
   steps = STEPS;
 }
+

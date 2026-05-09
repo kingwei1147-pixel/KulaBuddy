@@ -444,3 +444,4 @@ test("formatContentQualityForReason formats report into string", () => {
   assert.ok(formatted.includes("citations=3/10"));
   assert.ok(formatted.includes("Poor citations"));
 });
+

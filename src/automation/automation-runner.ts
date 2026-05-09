@@ -62,3 +62,4 @@ export class AutomationRunner {
     return triggered;
   }
 }
+

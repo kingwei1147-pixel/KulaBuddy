@@ -73,3 +73,4 @@ class MetricsCollector {
 }
 
 export const metrics = new MetricsCollector();
+

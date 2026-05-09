@@ -116,3 +116,4 @@ test("parsePlanActions handles tool_calls JSON block", () => {
   assert.equal(actions[0].type, "tool");
   assert.equal((actions[0] as any).tool, "search");
 });
+

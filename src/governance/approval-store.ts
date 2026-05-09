@@ -156,3 +156,4 @@ export class ApprovalStore {
     await writeFile(this.filePath, JSON.stringify(items, null, 2), "utf8");
   }
 }
+

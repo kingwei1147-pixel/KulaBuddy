@@ -6,3 +6,4 @@ export { NotificationBridge } from "./notification-bridge.js";
 export type { NotificationChannel, Notification, NotificationAction, NotificationResult } from "./notification-bridge.js";
 export { ExternalTriggers } from "./external-triggers.js";
 export type { TriggerConfig, TriggerEvent } from "./external-triggers.js";
+

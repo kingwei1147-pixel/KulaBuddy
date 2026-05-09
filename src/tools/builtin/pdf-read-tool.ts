@@ -144,3 +144,4 @@ export function createPdfReadTool(): ToolDefinition<PdfReadInput, PdfReadOutput>
     },
   };
 }
+

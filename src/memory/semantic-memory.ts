@@ -609,3 +609,4 @@ export class SemanticMemory {
     await writeFile(this.persistPath, JSON.stringify(data, null, 2), "utf8");
   }
 }
+

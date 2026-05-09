@@ -84,3 +84,4 @@ export function createUapiTranslateTool(): ToolDefinition<UapiTranslateInput, Ua
     }
   };
 }
+

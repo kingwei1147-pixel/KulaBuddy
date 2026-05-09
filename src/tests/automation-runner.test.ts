@@ -32,3 +32,4 @@ test("automation runner enqueues due interval automations", async () => {
     rmSync(tempDir, { recursive: true, force: true });
   }
 });
+

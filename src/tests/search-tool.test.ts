@@ -108,3 +108,4 @@ test("search-tool handles empty query gracefully", async () => {
   // Should not crash — may return success: false or empty results
   assert.ok(result.success !== undefined);
 });
+

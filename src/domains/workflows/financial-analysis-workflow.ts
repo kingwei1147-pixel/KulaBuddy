@@ -71,3 +71,4 @@ export class FinancialAnalysisWorkflow extends DomainWorkflow {
   name = "财务分析";
   steps = STEPS;
 }
+

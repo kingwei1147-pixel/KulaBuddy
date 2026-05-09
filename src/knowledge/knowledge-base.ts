@@ -211,3 +211,4 @@ export class KnowledgeBase {
     return this.index();
   }
 }
+
