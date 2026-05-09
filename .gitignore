@@ -23,6 +23,12 @@ desktop.ini
 *.gguf
 models/.cache/
 
+# Orphaned assets
+web/momo-icon.ico
+web/2.jpg
+web/背景.svg
+web/dudu-icon.jpg
+
 # Temp/test output
 test-output/
 .test-kb/

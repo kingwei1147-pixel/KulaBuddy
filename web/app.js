@@ -1,4 +1,4 @@
-// MOMO UI — app.js
+// KulaBuddy UI — app.js
 'use strict';
 
 // ── i18n translations ─────────────────────────────────────────────────────────────
@@ -67,7 +67,7 @@ const T = {
     type: 'Type',
     format: 'Format',
     model: 'Model',
-    whatToDo: 'What do you want MOMO to do?',
+    whatToDo: 'What do you want KulaBuddy to do?',
     knowledgeBase: 'Knowledge Base',
     kbFiles: 'Files',
     kbChunks: 'Chunks',
@@ -148,7 +148,7 @@ const T = {
     type: '类型',
     format: '格式',
     model: '模型',
-    whatToDo: '你想让 MOMO 做什么？',
+    whatToDo: '你想让 KulaBuddy 做什么？',
     knowledgeBase: '知识库',
     kbFiles: '文件',
     kbChunks: '块',
@@ -168,7 +168,7 @@ const T = {
 };
 
 function t(key) {
-  const locale = (() => { try { return localStorage.getItem('momo-locale') || 'en'; } catch { return 'en'; } })();
+  const locale = (() => { try { return localStorage.getItem('kulabuddy-locale') || 'en'; } catch { return 'en'; } })();
   return (T[locale] && T[locale][key]) ? T[locale][key] : (T.en[key] || key);
 }
 
@@ -378,7 +378,7 @@ function setRunButtonLoading(loading) {
 
 // ── Theme ───────────────────────────────────────────────────────────────────────
 function initTheme() {
-  const saved = (() => { try { return localStorage.getItem('momo-theme'); } catch { return null; } })();
+  const saved = (() => { try { return localStorage.getItem('kulabuddy-theme'); } catch { return null; } })();
   const select = document.getElementById('settings-theme');
   if (select && saved) select.value = saved;
   applyTheme(saved || 'pearl');
@@ -386,7 +386,7 @@ function initTheme() {
   // Listen for system theme changes when in auto mode
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      const current = (() => { try { return localStorage.getItem('momo-theme'); } catch { return null; } })();
+      const current = (() => { try { return localStorage.getItem('kulabuddy-theme'); } catch { return null; } })();
       if (current === 'auto') applyTheme('auto');
     });
   }
@@ -395,7 +395,7 @@ function initTheme() {
   if (select) {
     select.addEventListener('change', () => {
       applyTheme(select.value);
-      try { localStorage.setItem('momo-theme', select.value); } catch {}
+      try { localStorage.setItem('kulabuddy-theme', select.value); } catch {}
     });
   }
 }
@@ -531,7 +531,7 @@ const PERSONA_MAP = {
 function getPersonaBadge(taskType) {
   const p = PERSONA_MAP[taskType];
   if (!p) return '';
-  return `<span class="persona-badge" title="MOMO 当前身份：${p.name}">${p.icon} ${p.name}</span>`;
+  return `<span class="persona-badge" title="KulaBuddy 当前身份：${p.name}">${p.icon} ${p.name}</span>`;
 }
 
 // ── Quick task type inference ────────────────────────────────────────────────────
@@ -734,6 +734,12 @@ function updateChatProgressBar(pct) {
     fill.style.width = v + '%';
     fill.setAttribute('aria-valuenow', String(Math.round(v)));
   }
+  // Also update inline progress
+  const inline = document.getElementById('inline-progress-fill');
+  if (inline) {
+    const v = Math.min(Math.max(pct, 0), 100);
+    inline.style.width = v + '%';
+  }
 }
 
 // ── Task Execution ──────────────────────────────────────────────────────────────
@@ -749,8 +755,8 @@ function setupTaskUI(reset, goal) {
     document.getElementById('result-section').style.display = 'none';
     const existingErr = document.getElementById('error-card');
     if (existingErr) existingErr.remove();
-    document.getElementById('cancel-bar').style.display = 'flex';
-    document.getElementById('task-goal-display').textContent = goal || '';
+    document.getElementById('cancel-btn-input').style.display = 'inline-flex';
+    document.getElementById('inline-progress').style.display = 'block';
 
     // Reset context panel
     resetContextPanel();
@@ -798,7 +804,7 @@ function log(msg) {
   S.progressEvents.push(msg);
   if (S.progressEvents.length > 300) S.progressEvents.shift();
   // Timeline replaces the old #task-log; messages go to timeline steps
-  console.log('[momo]', msg);
+  console.log('[kulabuddy]', msg);
 }
 
 // ── SSE Watching ────────────────────────────────────────────────────────────────
@@ -1205,7 +1211,7 @@ function addThinkingIndicator(taskId) {
   bubble.innerHTML =
     `<div class="thread-msg-bubble">` +
       `<div class="thinking-dots"><span></span><span></span><span></span></div>` +
-      `<span class="thinking-text">MOMO is thinking...</span>` +
+      `<span class="thinking-text">KulaBuddy is thinking...</span>` +
     `</div>`;
   msgList.appendChild(bubble);
   msgList.scrollTop = msgList.scrollHeight;
@@ -1227,7 +1233,8 @@ function handleTerminal(status, data) {
   stopWatch();
   removeThinkingIndicator();
   removeChatSkeletons();
-  document.getElementById('cancel-bar').style.display = 'none';
+  document.getElementById('cancel-btn-input').style.display = 'none';
+  document.getElementById('inline-progress').style.display = 'none';
   setRunButtonLoading(false);
   const chatWs = document.querySelector('.chat-workspace');
   if (chatWs) chatWs.classList.remove('processing');
@@ -1277,7 +1284,7 @@ function handleWaitingApproval(data) {
   stopWatch();
   const payload = data.payload || data;
   S.currentTask = { ...payload, state: 'waiting_approval' };
-  document.getElementById('cancel-bar').style.display = 'none';
+  document.getElementById('cancel-btn-input').style.display = 'none';
   updateThinkingIndicator('Waiting for approval...');
   setRunButtonLoading(false);
 }
@@ -1353,7 +1360,7 @@ async function startTask() {
   } catch (err) {
     log('[ERROR] ' + err.message);
     setRunButtonLoading(false);
-    document.getElementById('cancel-bar').style.display = 'none';
+    document.getElementById('cancel-btn-input').style.display = 'none';
   }
 }
 
@@ -1362,7 +1369,8 @@ async function cancelTask() {
   try {
     await api('/api/tasks/cancel', { method: 'POST', body: { taskId: S.currentTask.taskId } });
     stopWatch();
-    document.getElementById('cancel-bar').style.display = 'none';
+    document.getElementById('cancel-btn-input').style.display = 'none';
+    document.getElementById('inline-progress').style.display = 'none';
     setRunButtonLoading(false);
     if (S.view === 'workspace') {
       removeThinkingIndicator();
@@ -1688,6 +1696,28 @@ async function loadHistory() {
         }
       });
     });
+
+    // Also update the persistent history panel
+    const panelBody = document.getElementById('history-panel-body');
+    const panelCount = document.getElementById('history-panel-count');
+    if (panelCount) panelCount.textContent = items.length;
+    if (panelBody) {
+      panelBody.innerHTML = items.slice(0, 50).map(item =>
+        `<div class="history-panel-item" data-task-id="${esc(item.taskId)}">
+          <div class="history-panel-item-goal">${esc(item.goal || '')}</div>
+          <div class="history-panel-item-meta">
+            <span class="history-panel-item-status ${item.status || item.state}">${esc(item.status || item.state)}</span>
+            <span>${timeFmt(item.createdAt || item.startedAt)}</span>
+          </div>
+        </div>`
+      ).join('');
+      panelBody.querySelectorAll('.history-panel-item').forEach(row => {
+        row.addEventListener('click', () => {
+          const tid = row.dataset.taskId;
+          if (tid) openTaskDetail(tid);
+        });
+      });
+    }
 
   } catch (err) {
     console.error('loadHistory failed:', err);
@@ -2095,7 +2125,7 @@ async function loadConfig() {
     setSelectVal('settings-approval-policy', data.approvalPolicyPreset);
 
     // Locale
-    const savedLocale = (() => { try { return localStorage.getItem('momo-locale'); } catch { return null; } })();
+    const savedLocale = (() => { try { return localStorage.getItem('kulabuddy-locale'); } catch { return null; } })();
     setSelectVal('settings-locale', savedLocale || data.locale || 'en');
 
     // Env list
@@ -2236,7 +2266,7 @@ async function saveLocale() {
     await api('/api/config/locale', { method: 'POST', body: { locale } });
     showFeedback('locale-save-feedback', true, t('savedRefresh'));
     // Persist to localStorage for immediate UI effect
-    try { localStorage.setItem('momo-locale', locale); } catch {}
+    try { localStorage.setItem('kulabuddy-locale', locale); } catch {}
     // Apply translations immediately
     applyLocale(locale);
     // Refresh model display and tools with new locale
@@ -2451,7 +2481,7 @@ function enterProjectWorkspace(project) {
   S.view = 'workspace';
   S.activeTaskId = null;
   S.activeProjectTasks = [];
-  try { localStorage.setItem('momo-active-project', JSON.stringify(project)); } catch {}
+  try { localStorage.setItem('kulabuddy-active-project', JSON.stringify(project)); } catch {}
 
   // Toggle visibility
   document.getElementById('home-view').style.display = 'none';
@@ -2466,7 +2496,7 @@ function enterProjectWorkspace(project) {
   showChatProgressBar(false);
   document.getElementById('result-section').style.display = 'none';
   document.getElementById('streaming-output').style.display = 'none';
-  document.getElementById('cancel-bar').style.display = 'none';
+  document.getElementById('cancel-btn-input').style.display = 'none';
   document.getElementById('goal').value = '';
 
   // Update panel header
@@ -2488,7 +2518,7 @@ function leaveProjectWorkspace() {
   S.activeTaskId = null;
   S.view = 'home';
   S.activeProjectTasks = [];
-  try { localStorage.removeItem('momo-active-project'); } catch {}
+  try { localStorage.removeItem('kulabuddy-active-project'); } catch {}
 
   document.getElementById('project-panel').style.display = 'none';
   document.getElementById('chat-workspace').style.display = '';
@@ -2499,7 +2529,7 @@ function leaveProjectWorkspace() {
 
   showChatProgressBar(false);
   document.getElementById('result-section').style.display = 'none';
-  document.getElementById('cancel-bar').style.display = 'none';
+  document.getElementById('cancel-btn-input').style.display = 'none';
   document.getElementById('goal').value = '';
 
   // Add standalone class back to main for centered layout
@@ -2536,7 +2566,7 @@ function selectTask(taskId) {
   // Clear other UI
   showChatProgressBar(false);
   document.getElementById('result-section').style.display = 'none';
-  document.getElementById('cancel-bar').style.display = 'none';
+  document.getElementById('cancel-btn-input').style.display = 'none';
 }
 
 function showContextBar(task) {
@@ -2703,7 +2733,7 @@ async function init() {
     document.getElementById('context-bar').style.display = 'none';
     document.getElementById('home-view').style.display = 'none';
     document.getElementById('result-section').style.display = 'none';
-    document.getElementById('cancel-bar').style.display = 'none';
+    document.getElementById('cancel-btn-input').style.display = 'none';
     showChatProgressBar(false);
     document.getElementById('goal').value = '';
     document.getElementById('goal').focus();
@@ -2722,16 +2752,6 @@ async function init() {
       e.preventDefault();
       startTask();
     }
-  });
-
-  // Toggle advanced options
-  document.getElementById('toggle-advanced').addEventListener('click', () => {
-    const el = document.getElementById('advanced-options');
-    const btn = document.getElementById('toggle-advanced');
-    const isHidden = el.style.display === 'none';
-    el.style.display = isHidden ? 'block' : 'none';
-    btn.querySelector('span').textContent = isHidden ? '−' : '+';
-    btn.setAttribute('aria-expanded', String(isHidden));
   });
 
   // Mode selector: show collaboration options when Project is selected
@@ -2759,7 +2779,7 @@ async function init() {
   document.getElementById('run-btn').addEventListener('click', startTask);
 
   // Cancel button
-  document.getElementById('cancel-btn').addEventListener('click', cancelTask);
+  document.getElementById('cancel-btn-input').addEventListener('click', cancelTask);
 
   // Retry / Replay
   document.getElementById('retry-btn').addEventListener('click', retryTask);
@@ -2945,14 +2965,14 @@ async function init() {
 
   // Apply locale from saved preference
   try {
-    const savedLocale = localStorage.getItem('momo-locale') || (S.config?.locale) || 'en';
+    const savedLocale = localStorage.getItem('kulabuddy-locale') || (S.config?.locale) || 'en';
     document.getElementById('settings-locale').value = savedLocale;
     applyLocale(savedLocale);
   } catch (err) { console.warn('applyLocale failed:', err.message); }
 
   // Restore workspace state from localStorage
   try {
-    const saved = localStorage.getItem('momo-active-project');
+    const saved = localStorage.getItem('kulabuddy-active-project');
     if (saved) {
       const project = JSON.parse(saved);
       const found = S.projects.find(p => p.id === project.id);
@@ -2960,7 +2980,7 @@ async function init() {
         enterProjectWorkspace(found);
       } else {
         S.activeProject = null;
-        localStorage.removeItem('momo-active-project');
+        localStorage.removeItem('kulabuddy-active-project');
         document.querySelector('.main').classList.add('standalone');
         renderHomeView();
       }
@@ -3326,7 +3346,7 @@ async function marketplaceInstall(name) {
     const s = document.getElementById('marketplace-status');
     if (data.success) {
       s.className = 'marketplace-status success';
-      s.textContent = 'Installed ' + name + ' successfully. Restart MOMO if needed.';
+      s.textContent = 'Installed ' + name + ' successfully. Restart KulaBuddy if needed.';
       setTimeout(() => { s.className = 'marketplace-status'; }, 5000);
       await loadMarketplaceInstalled();
     } else {

@@ -1,6 +1,6 @@
 {
-  "name": "MOMO - Autonomous AI Agent",
-  "short_name": "MOMO",
+  "name": "KulaBuddy - Autonomous AI Agent",
+  "short_name": "KulaBuddy",
   "description": "Local-first autonomous AI agent OS",
   "start_url": "/",
   "display": "standalone",
@@ -9,16 +9,16 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "/momo-icon.jpg?v=2",
-      "sizes": "192x192",
-      "type": "image/jpeg",
+      "src": "/kulabuddy-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/momo-icon.jpg?v=2",
+      "src": "/kulabuddy-icon.jpg?v=2",
       "sizes": "512x512",
       "type": "image/jpeg",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ],
   "categories": ["productivity", "developer tools", "utilities"],

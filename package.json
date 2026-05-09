@@ -1,12 +1,12 @@
 {
-  "name": "momo",
+  "name": "kulabuddy",
   "version": "0.5.3",
-  "productName": "MOMO",
-  "description": "MOMO autonomous AI agent with built-in GGML runtime, multi-model orchestration, automation, and self-learning",
+  "productName": "KulaBuddy",
+  "description": "KulaBuddy autonomous AI agent with built-in GGML runtime, multi-model orchestration, automation, and self-learning",
   "author": {
     "name": "kingwang",
     "email": "504097817@qq.com",
-    "url": "https://github.com/wwcc0000904/MOMO-AgentOS"
+    "url": "https://github.com/wwcc0000904/KulaBuddy"
   },
   "type": "module",
   "main": "electron/main.cjs",

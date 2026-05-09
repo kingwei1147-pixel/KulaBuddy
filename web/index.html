@@ -6,16 +6,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <title>MOMO</title>
+  <title>KulaBuddy</title>
   <meta name="description" content="Local-first autonomous AI agent OS" />
   <meta name="theme-color" content="#0f0f1a" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="MOMO" />
-  <link rel="icon" href="/momo-icon.jpg?v=2" />
-  <link rel="apple-touch-icon" href="/momo-icon.jpg?v=2" />
+  <meta name="apple-mobile-web-app-title" content="KulaBuddy" />
+  <link rel="icon" href="/kulabuddy-icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/kulabuddy-icon.svg" />
+  <link rel="icon" href="/kulabuddy-icon.jpg?v=2" sizes="any" />
   <link rel="manifest" href="/manifest.json?v=2" />
-  <link rel="stylesheet" href="/styles.css?v=0.9.4" />
+  <link rel="stylesheet" href="/styles.css?v=0.9.6" />
 </head>
 <body>
 
@@ -36,36 +37,15 @@
        ════════════════════════════════════════════════════════════════ -->
   <header class="topbar">
     <div class="topbar-left">
-      <img src="/momo-icon.jpg?v=2" alt="MOMO" class="topbar-logo" />
-      <span class="topbar-brand">MOMO</span>
-      <div class="topbar-wave" id="title-wave">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
-    </div>
-
-    <div class="topbar-center">
+      <img src="/kulabuddy-icon.svg" alt="KulaBuddy" class="topbar-logo" />
+      <span class="topbar-brand">KulaBuddy</span>
       <div class="topbar-model-badge" id="topbar-model-badge" title="Current model">
         <span class="topbar-model-dot" id="topbar-model-dot"></span>
         <span class="topbar-model-name" id="topbar-model-name">loading...</span>
       </div>
-      <div class="topbar-status" id="topbar-status">
-        <span class="topbar-status-dot" id="topbar-status-dot"></span>
-        <span id="topbar-status-text">ONLINE</span>
-      </div>
       <span class="topbar-tokens" id="title-tokens">TOK: —</span>
     </div>
 
-    <div class="topbar-right">
-      <button class="topbar-drawer-btn" data-drawer="history" title="History" aria-label="Task history">☰</button>
-      <button class="topbar-drawer-btn" data-drawer="projects" title="Projects" aria-label="Projects">◫</button>
-      <button class="topbar-drawer-btn" data-drawer="marketplace" title="Marketplace" aria-label="Marketplace">◈</button>
-      <button class="topbar-drawer-btn" data-drawer="settings" title="Settings" aria-label="Settings">⚙</button>
-      <span class="topbar-sep"></span>
-      <button class="topbar-btn" id="pwa-install-btn" title="Install App" style="display:none" onclick="pwaInstall()" aria-label="Install app">⬇</button>
-      <button class="topbar-btn" id="title-minimize" title="Minimize" aria-label="Minimize">─</button>
-      <button class="topbar-btn" id="title-maximize" title="Maximize" aria-label="Maximize">□</button>
-      <button class="topbar-btn topbar-btn-close" id="title-close" title="Close" aria-label="Close">✕</button>
-    </div>
   </header>
 
   <!-- ════════════════════════════════════════════════════════════════
@@ -90,6 +70,20 @@
       </div>
       <div class="panel-footer">
         <button class="panel-new-task-btn" id="panel-new-task-btn">+ New Task</button>
+      </div>
+    </aside>
+
+    <!-- History Panel (left sidebar, always visible) -->
+    <aside class="history-panel" id="history-panel">
+      <div class="history-panel-header">
+        <span class="history-panel-title">History</span>
+        <span class="history-panel-count" id="history-panel-count">0</span>
+      </div>
+      <div class="history-panel-body" id="history-panel-body">
+        <div class="empty-state" style="padding:20px;font-size:12px">No history yet</div>
+      </div>
+      <div class="history-panel-footer">
+        <span class="bottombar-version">v0.9.4</span>
       </div>
     </aside>
 
@@ -128,7 +122,7 @@
       <!-- Welcome (shown when no messages) -->
       <div class="chat-welcome" id="chat-welcome">
         <div class="chat-welcome-logo"></div>
-        <h1 class="chat-welcome-title">MOMO</h1>
+        <h1 class="chat-welcome-title">KulaBuddy</h1>
         <p class="chat-welcome-tagline">Your autonomous AI agent</p>
       </div>
 
@@ -136,14 +130,12 @@
       <div class="input-area">
         <textarea id="goal" rows="2"
           data-i18n-placeholder="whatToDo"
-          placeholder="What do you want MOMO to do?"
+          placeholder="What do you want KulaBuddy to do?"
           maxlength="4000"
           autofocus></textarea>
         <div class="input-actions">
           <div class="input-actions-left">
-            <button type="button" id="toggle-advanced" class="action-chip" title="Show advanced options" aria-expanded="false">
-              <span>+</span> <span data-i18n="options">Options</span>
-            </button>
+            <button type="button" id="cancel-btn-input" class="action-btn danger" style="display:none" data-i18n="cancel">✕ Cancel</button>
             <label class="attach-btn" title="Attach files" aria-label="Attach files">
               +
               <input type="file" id="attachments-input" multiple hidden />
@@ -156,9 +148,13 @@
             <span>▶</span> <span data-i18n="submit">Run</span>
           </button>
         </div>
+        <!-- Inline progress bar (visible during run, between actions and options) -->
+        <div id="inline-progress" class="inline-progress" style="display:none">
+          <div class="inline-progress-fill" id="inline-progress-fill"></div>
+        </div>
         <div class="attachment-chips" id="attachment-chips" style="display:none"></div>
-        <!-- Advanced options -->
-        <div class="advanced-options" id="advanced-options" style="display:none">
+        <!-- Advanced options — always visible -->
+        <div class="advanced-options" id="advanced-options">
           <div class="option-row">
             <label class="opt-label" data-i18n="type">Type</label>
             <select id="task-type" class="opt-select">
@@ -210,12 +206,6 @@
           </div>
         </div>
 
-      </div>
-
-      <!-- Cancel button (visible during run) -->
-      <div class="cancel-bar" id="cancel-bar" style="display:none">
-        <button id="cancel-btn" class="action-btn danger" data-i18n="cancel">Cancel</button>
-        <span class="cancel-goal" id="task-goal-display"></span>
       </div>
 
       <!-- Execution Timeline -->
@@ -298,14 +288,32 @@
        BOTTOM BAR
        ════════════════════════════════════════════════════════════════ -->
   <footer class="bottombar">
-    <span class="bottombar-version">v0.9.4</span>
-    <div class="bottombar-xp">
-      <span class="bottombar-xp-label">Lv.3</span>
-      <div class="xp-bar">
-        <div class="xp-fill" id="xp-fill" style="width:65%"></div>
+    <div class="bottombar-left">
+      <button class="topbar-drawer-btn" data-drawer="history" title="History" aria-label="Task history">☰</button>
+      <button class="topbar-drawer-btn" data-drawer="projects" title="Projects" aria-label="Projects">◫</button>
+      <button class="topbar-drawer-btn" data-drawer="marketplace" title="Marketplace" aria-label="Marketplace">◈</button>
+      <button class="topbar-drawer-btn" data-drawer="settings" title="Settings" aria-label="Settings">⚙</button>
+      <span class="bottombar-sep"></span>
+      <span class="bottombar-version">v0.9.4</span>
+      <div class="bottombar-xp">
+        <span class="bottombar-xp-label">Lv.3</span>
+        <div class="xp-bar">
+          <div class="xp-fill" id="xp-fill" style="width:65%"></div>
+        </div>
       </div>
+      <span class="bottombar-tasks" id="bottombar-task-count">0 tasks</span>
     </div>
-    <span class="bottombar-tasks" id="bottombar-task-count">0 tasks</span>
+    <div class="bottombar-right">
+      <div class="topbar-status" id="topbar-status">
+        <span class="topbar-status-dot" id="topbar-status-dot"></span>
+        <span id="topbar-status-text">ONLINE</span>
+      </div>
+      <button class="topbar-btn" id="pwa-install-btn" title="Install App" style="display:none" onclick="pwaInstall()" aria-label="Install app">⬇</button>
+      <span class="bottombar-sep"></span>
+      <button class="topbar-btn" id="title-minimize" title="Minimize" aria-label="Minimize">─</button>
+      <button class="topbar-btn" id="title-maximize" title="Maximize" aria-label="Maximize">□</button>
+      <button class="topbar-btn topbar-btn-close" id="title-close" title="Close" aria-label="Close">✕</button>
+    </div>
   </footer>
 
 </div><!-- /#app -->
@@ -430,7 +438,7 @@
       <h3>Plugins</h3>
       <span class="panel-count" id="plugins-count">0</span>
       <div id="plugins-list" class="list">
-        <div class="empty-state">Plugins extend MOMO with MCP servers and custom skills.</div>
+        <div class="empty-state">Plugins extend KulaBuddy with MCP servers and custom skills.</div>
       </div>
     </div>
 
@@ -674,6 +682,6 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 
-<script src="/app.js?v=0.9.3"></script>
+<script src="/app.js?v=0.9.4"></script>
 </body>
 </html>

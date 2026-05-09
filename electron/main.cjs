@@ -28,7 +28,7 @@ function startServer() {
     serverProcess.stdout?.on("data", (chunk) => {
       const text = chunk.toString();
       process.stdout.write("[server] " + text);
-      if (!started && text.includes("DaDa UI running at")) {
+      if (!started && text.includes("KulaBuddy UI running at")) {
         started = true;
         resolve();
       }
@@ -69,7 +69,7 @@ function waitForServer() {
 }
 
 function createTrayIcon() {
-  // Create a 16x16 tray icon from raw pixel data (DaDa "D" monogram)
+  // Create a 16x16 tray icon from raw pixel data (KulaBuddy "K" monogram)
   const size = 16;
   const buf = Buffer.alloc(size * size * 4);
   for (let y = 0; y < size; y++) {
@@ -100,7 +100,7 @@ function createTrayIcon() {
 
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: "Show DaDa",
+      label: "Show KulaBuddy",
       click: () => {
         if (mainWindow) {
           mainWindow.show();
@@ -118,7 +118,7 @@ function createTrayIcon() {
     }
   ]);
 
-  tray.setToolTip("DaDa AI Agent");
+  tray.setToolTip("KulaBuddy AI Agent");
   tray.setContextMenu(contextMenu);
 
   tray.on("double-click", () => {
@@ -135,8 +135,8 @@ function createWindow() {
     height: 800,
     minWidth: 800,
     minHeight: 600,
-    title: "DaDa",
-    icon: path.join(__dirname, "..", "web", "momo-icon.jpg"),
+    title: "KulaBuddy",
+    icon: path.join(__dirname, "..", "web", "kulabuddy-icon.jpg"),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true
@@ -177,7 +177,7 @@ app.whenReady().then(async () => {
     createTrayIcon();
   } catch (err) {
     console.error("[electron] Failed to start:", err.message);
-    dialog.showErrorBox("Startup Error", `Failed to start DaDa server:\n${err.message}`);
+    dialog.showErrorBox("Startup Error", `Failed to start KulaBuddy server:\n${err.message}`);
     app.quit();
   }
 });

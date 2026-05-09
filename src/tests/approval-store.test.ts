@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { ApprovalStore } from "../governance/approval-store.js";
 
 test("approval store creates, approves, and consumes approval", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "momo-approval-store-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "kulabuddy-approval-store-"));
 
   try {
     const store = new ApprovalStore(join(tempDir, "approvals.json"));

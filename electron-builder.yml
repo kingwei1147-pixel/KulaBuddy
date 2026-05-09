@@ -1,5 +1,5 @@
-appId: com.momo.agent
-productName: DaDa
+appId: com.kulabuddy.agent
+productName: KulaBuddy
 copyright: Copyright 2026 Orion Wang
 
 directories:
@@ -30,7 +30,7 @@ asarUnpack:
 win:
   target:
     - nsis
-  icon: web/momo-icon.jpg
+  icon: web/kulabuddy-icon.jpg
   artifactName: ${productName}-${version}-${arch}.${ext}
   signAndEditExecutable: false
 
@@ -39,19 +39,19 @@ nsis:
   allowToChangeInstallationDirectory: true
   createDesktopShortcut: true
   createStartMenuShortcut: true
-  shortcutName: DaDa
-  installerIcon: web/momo-icon.jpg
-  uninstallerIcon: web/momo-icon.jpg
+  shortcutName: KulaBuddy
+  installerIcon: web/kulabuddy-icon.jpg
+  uninstallerIcon: web/kulabuddy-icon.jpg
 
 mac:
   target:
     - dmg
-  icon: web/momo-icon.jpg
+  icon: web/kulabuddy-icon.jpg
   category: public.app-category.developer-tools
   artifactName: ${productName}-${version}-${arch}.${ext}
 
 dmg:
-  title: DaDa ${version}
+  title: KulaBuddy ${version}
   iconSize: 100
   contents:
     - x: 130
@@ -64,6 +64,6 @@ dmg:
 linux:
   target:
     - AppImage
-  icon: web/momo-icon.jpg
+  icon: web/kulabuddy-icon.jpg
   category: Development
   artifactName: ${productName}-${version}-${arch}.${ext}

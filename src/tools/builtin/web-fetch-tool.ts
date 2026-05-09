@@ -39,7 +39,7 @@ export function createWebFetchTool(
         const response = await fetch(input.url, {
           signal: controller.signal,
           headers: {
-            "User-Agent": "MOMO/1.0 (autonomous-agent; +https://github.com/momo-agent)",
+            "User-Agent": "KulaBuddy/1.0 (autonomous-agent; +https://github.com/kulabuddy)",
             "Accept": "text/html,text/plain,application/json;q=0.9,*/*;q=0.5",
           },
         });

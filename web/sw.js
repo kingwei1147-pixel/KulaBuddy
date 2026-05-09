@@ -1,12 +1,12 @@
-// MOMO Service Worker — PWA offline support
-const CACHE_NAME = "momo-v22";
+// KulaBuddy Service Worker — PWA offline support
+const CACHE_NAME = "kulabuddy-v22";
 const STATIC_ASSETS = [
   "/",
   "/index.html",
   "/app.js",
   "/styles.css",
   "/manifest.json?v=2",
-  "/momo-icon.jpg?v=2"
+  "/kulabuddy-icon.svg"
 ];
 
 // Install: pre-cache static assets
@@ -83,13 +83,13 @@ self.addEventListener("fetch", (event) => {
 
 // Push notification support
 self.addEventListener("push", (event) => {
-  const data = event.data?.json() || { title: "MOMO", body: "Task update" };
+  const data = event.data?.json() || { title: "KulaBuddy", body: "Task update" };
   event.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
-      icon: "/momo-icon.jpg",
-      badge: "/momo-icon.jpg",
-      tag: data.tag || "momo-update",
+      icon: "/kulabuddy-icon.svg",
+      badge: "/kulabuddy-icon.svg",
+      tag: data.tag || "kulabuddy-update",
       data: data,
       requireInteraction: data.requireInteraction || false
     })

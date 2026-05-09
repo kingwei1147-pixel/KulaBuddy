@@ -1,5 +1,5 @@
 /**
- * SmartEscalation decides when MOMO should ask the user for help.
+ * SmartEscalation decides when KulaBuddy should ask the user for help.
  * Beyond the existing permission-based approval system, this adds
  * confidence-based escalation — the agent knows when it's unsure.
  */

@@ -1,10 +1,10 @@
-# MOMO UI Framework
+# KulaBuddy UI Framework
 
 ## Layout
 
 ```
 ┌─────────────── Topbar ──────────────────────┐
-│ Logo  MOMO    model  ● ONLINE  TOK:123     │
+│ Logo  KulaBuddy    model  ● ONLINE  TOK:123     │
 ├────────┬────────────────────────────────────┤
 │        │  ContextBar (current task + badge) │
 │ Panel  ├────────────────────────────────────┤

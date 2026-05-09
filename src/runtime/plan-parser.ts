@@ -29,8 +29,8 @@ function extractInvokeParams(text: string): Record<string, unknown> {
 }
 
 // DeepSeek V4 wraps XML tags with fullwidth vertical bars + "DSML":
-//   <momo_invoke name="x">  →  <invoke name="x">
-// where "momo_" = ｜｜DSML｜｜
+//   <kulabuddy_invoke name="x">  →  <invoke name="x">
+// where "kulabuddy_" = ｜｜DSML｜｜
 const DSML = "｜DSML｜";
 function normalizeDSML(text: string): string {
   return text

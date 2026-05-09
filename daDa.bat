@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 > nul
-title DaDa
+title KulaBuddy
 cd /d "%~dp0"
 
 REM Check Node.js

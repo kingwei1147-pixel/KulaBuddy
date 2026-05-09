@@ -195,7 +195,7 @@ async function searchGitHubTopics(query: string, limit: number): Promise<Array<{
       signal: controller.signal,
       headers: {
         "Accept": "application/vnd.github.v3+json",
-        "User-Agent": "MOMO/0.4",
+        "User-Agent": "KulaBuddy/0.4",
       },
     });
 

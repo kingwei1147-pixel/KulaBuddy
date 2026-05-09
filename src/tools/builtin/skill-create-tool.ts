@@ -69,7 +69,7 @@ function buildSkillMarkdown(input: SkillCreateInput, safeName: string): string {
 export function createSkillCreateTool(rootDir = "./.agent/skills"): ToolDefinition<SkillCreateInput, SkillCreateOutput> {
   return {
     id: "skill.create",
-    description: "Create a reusable local MOMO skill draft when the current task needs a missing workflow capability",
+    description: "Create a reusable local KulaBuddy skill draft when the current task needs a missing workflow capability",
     requiredScopes: ["filesystem.write"] as PermissionScope[],
     riskLevel: "high",
     inputSchema: {

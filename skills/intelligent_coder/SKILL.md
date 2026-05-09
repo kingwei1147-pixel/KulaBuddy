@@ -7,7 +7,7 @@ triggers: architecture, implementation, coding plan, fix bug, build, test, refac
 
 # Intelligent Coder Skill
 
-Use this skill when MOMO should do more than generate code snippets and instead act like a software engineer.
+Use this skill when KulaBuddy should do more than generate code snippets and instead act like a software engineer.
 
 ## Recommended Tools
 

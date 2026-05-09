@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { loadConfig } from "../config.js";
 
 test("loadConfig loads values from .env", () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "momo-config-env-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "kulabuddy-config-env-"));
   const previousCwd = process.cwd();
 
   try {
@@ -30,7 +30,7 @@ test("loadConfig loads values from .env", () => {
 });
 
 test("loadConfig lets .env.local override .env but not explicit env", () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "momo-config-local-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "kulabuddy-config-local-"));
   const previousCwd = process.cwd();
 
   try {

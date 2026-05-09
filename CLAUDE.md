@@ -64,7 +64,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ---
 
-## Project: MOMO — Autonomous AI Agent
+## Project: KulaBuddy — Autonomous AI Agent
 
 - TypeScript + Node.js
 - 8 domain workflows: market-analysis, product-design, financial-analysis, legal-review, hr-recruitment, engineering-design, content-marketing, customer-support
@@ -73,7 +73,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ### 核心解决痛点
 
-MOMO 解决的核心问题是：**现有 AI Agent 方案在"自主性"和"本地化"之间存在空白 —— 要么完全依赖云端 API（如 Claude Code），要么需要复杂的第三方基础设施（Ollama/vLLM/LM Studio）来运行本地模型。**
+KulaBuddy 解决的核心问题是：**现有 AI Agent 方案在"自主性"和"本地化"之间存在空白 —— 要么完全依赖云端 API（如 Claude Code），要么需要复杂的第三方基础设施（Ollama/vLLM/LM Studio）来运行本地模型。**
 
 具体来说：
 

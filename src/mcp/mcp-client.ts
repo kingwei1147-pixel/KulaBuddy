@@ -85,7 +85,7 @@ export class McpClient {
       this.send("initialize", {
         protocolVersion: "2025-03-26",
         capabilities: {},
-        clientInfo: { name: "momo", version: "0.5.3" },
+        clientInfo: { name: "kulabuddy", version: "0.5.3" },
       })
         .then((initResp) => {
           if (initResp.error) {

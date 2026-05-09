@@ -19,7 +19,7 @@ test("resolveStaticFilePath blocks directory traversal", () => {
 });
 
 test("serveStaticAsset serves jpeg assets with image content type", async () => {
-  const tempDir = mkdtempSync(resolve(tmpdir(), "momo-static-"));
+  const tempDir = mkdtempSync(resolve(tmpdir(), "kulabuddy-static-"));
 
   try {
     writeFileSync(resolve(tempDir, "icon.jpg"), Buffer.from([0xff, 0xd8, 0xff, 0xd9]));

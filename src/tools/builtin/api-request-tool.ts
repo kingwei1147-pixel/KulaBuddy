@@ -70,7 +70,7 @@ export function createApiRequestTool(allowlist: string[]): ToolDefinition<ApiReq
         const response = await fetch(url, {
           method,
           headers: {
-            "User-Agent": "momo-agent/1.0",
+            "User-Agent": "KulaBuddy/1.0",
             ...headers
           },
           body: body ? (typeof body === "string" ? body : JSON.stringify(body)) : undefined,

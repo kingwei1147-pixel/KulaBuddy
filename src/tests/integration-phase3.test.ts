@@ -28,7 +28,7 @@ import { ContextBus } from "../agents/context-bus.js";
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function tempDir() {
-  return mkdtempSync(join(tmpdir(), "momo-p3-test-"));
+  return mkdtempSync(join(tmpdir(), "kulabuddy-p3-test-"));
 }
 
 // ─── 1. Priority Queue & Per-Project Quota ─────────────────────────────────

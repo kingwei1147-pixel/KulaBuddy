@@ -1,6 +1,6 @@
 /**
  * ExternalTriggers — generic webhook receiver that maps incoming HTTP calls
- * to MOMO task execution. Enables external services (GitHub, Slack, cron
+ * to KulaBuddy task execution. Enables external services (GitHub, Slack, cron
  * monitors, etc.) to trigger autonomous workflows.
  */
 

@@ -58,7 +58,7 @@ export function createAgentDelegateTool(
         return JSON.stringify({
           delegated: false,
           reason: "No other agents available in the mesh. Execute this subtask yourself.",
-          hint: "You can create worker agents by starting additional MOMO instances with different roles."
+          hint: "You can create worker agents by starting additional KulaBuddy instances with different roles."
         });
       }
 

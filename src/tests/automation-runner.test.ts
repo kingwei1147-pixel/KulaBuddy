@@ -7,7 +7,7 @@ import { AutomationRegistry } from "../automation/automation-registry.js";
 import { AutomationRunner } from "../automation/automation-runner.js";
 
 test("automation runner enqueues due interval automations", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "momo-automation-runner-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "kulabuddy-automation-runner-"));
 
   try {
     const registry = new AutomationRegistry(join(tempDir, "automations.json"));

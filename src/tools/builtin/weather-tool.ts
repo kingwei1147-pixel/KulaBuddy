@@ -108,7 +108,7 @@ export function createWeatherTool(): ToolDefinition<WeatherInput, WeatherOutput>
       try {
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&timezone=auto&forecast_days=${days}`;
         const resp = await fetch(url, {
-          headers: { "User-Agent": "MOMO/1.0" },
+          headers: { "User-Agent": "KulaBuddy/1.0" },
           signal: AbortSignal.timeout(10000)
         });
         if (!resp.ok) {

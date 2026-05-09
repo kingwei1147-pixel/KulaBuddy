@@ -206,7 +206,7 @@ export class LarkBot implements BotAdapter {
     return {
       config: { wide_screen_mode: true },
       header: {
-        title: { tag: "plain_text", content: "MOMO" },
+        title: { tag: "plain_text", content: "KulaBuddy" },
         template: "blue" as const
       },
       elements: [

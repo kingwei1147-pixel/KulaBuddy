@@ -683,7 +683,7 @@ async function main() {
 
   server.listen(port, () => {
     const url = `http://localhost:${port}`;
-    console.log(`MOMO UI running at ${url}`);
+    console.log(`KulaBuddy UI running at ${url}`);
 
     // Auto-open browser on Windows
     const noBrowser = process.env.NO_BROWSER === "1";

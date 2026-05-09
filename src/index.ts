@@ -5,7 +5,7 @@ async function main(): Promise<void> {
 
   const goal = process.argv.slice(2).join(" ").trim();
   if (!goal) {
-    console.log("[APP] No task specified. MOMO is idle. Use: npx tsx src/index.ts \"your task here\"");
+    console.log("[APP] No task specified. KulaBuddy is idle. Use: npx tsx src/index.ts \"your task here\"");
     console.log("[APP] Or start the web UI to submit tasks interactively.");
     // Keep process alive for SelfImprover and monitoring
     await new Promise(() => {}); // never resolve — keep alive

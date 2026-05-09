@@ -266,7 +266,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   tools.register(createChartTool());
 
   // ── MCP Dynamic Loading (self-configuration) ─────────────────────
-  // MOMO can discover, install, and use MCP servers at runtime.
+  // KulaBuddy can discover, install, and use MCP servers at runtime.
   // This is how it fills its own capability gaps.
   const mcpManager = createMcpManager(config.mcpDataDir || "./.agent/mcp");
   tools.setMcpManager(mcpManager);
@@ -481,7 +481,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   };
 
   const mainAgentHost = new AgentHost({
-    name: "momo-main",
+    name: "kulabuddy-main",
     role: "coordinator",
     capabilities: ["planning", "research", "code", "file_operations", "media", "web"],
     maxConcurrency: 3,
@@ -497,7 +497,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   // The coordinator delegates to them based on task type and required capabilities.
 
   const researcherHost = new AgentHost({
-    name: "momo-researcher",
+    name: "kulabuddy-researcher",
     role: "worker",
     capabilities: ["search", "web-fetch", "data-analysis", "research", "reporting", "market-analysis"],
     maxConcurrency: 2,
@@ -509,7 +509,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const engineerHost = new AgentHost({
-    name: "momo-engineer",
+    name: "kulabuddy-engineer",
     role: "worker",
     capabilities: ["code", "shell", "file-write", "testing", "debugging", "git", "deployment"],
     maxConcurrency: 2,
@@ -521,7 +521,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const mediaHost = new AgentHost({
-    name: "momo-media",
+    name: "kulabuddy-media",
     role: "worker",
     capabilities: ["image-generation", "video-generation", "voice", "chart", "design", "visual", "media-editing"],
     maxConcurrency: 2,
@@ -533,7 +533,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const reviewerHost = new AgentHost({
-    name: "momo-reviewer",
+    name: "kulabuddy-reviewer",
     role: "critic",
     capabilities: ["verification", "quality-check", "proofreading", "audit", "approval", "code-review"],
     maxConcurrency: 2,
@@ -545,7 +545,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const financeHost = new AgentHost({
-    name: "momo-finance",
+    name: "kulabuddy-finance",
     role: "worker",
     capabilities: ["financial-analysis", "data-analysis", "valuation", "forecasting", "investment", "chart"],
     maxConcurrency: 2,
@@ -557,7 +557,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const legalHost = new AgentHost({
-    name: "momo-legal",
+    name: "kulabuddy-legal",
     role: "worker",
     capabilities: ["legal-research", "contract-review", "compliance", "risk-assessment", "regulatory"],
     maxConcurrency: 2,
@@ -569,7 +569,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const hrHost = new AgentHost({
-    name: "momo-hr",
+    name: "kulabuddy-hr",
     role: "worker",
     capabilities: ["recruitment", "job-analysis", "screening", "onboarding", "training", "compensation"],
     maxConcurrency: 2,
@@ -581,7 +581,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const designerHost = new AgentHost({
-    name: "momo-designer",
+    name: "kulabuddy-designer",
     role: "worker",
     capabilities: ["architecture", "system-design", "tech-stack", "api-design", "deployment", "requirements"],
     maxConcurrency: 2,
@@ -593,7 +593,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const marketerHost = new AgentHost({
-    name: "momo-marketer",
+    name: "kulabuddy-marketer",
     role: "worker",
     capabilities: ["content-strategy", "audience-analysis", "seo", "content-calendar", "distribution", "analytics"],
     maxConcurrency: 2,
@@ -605,7 +605,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const supportHost = new AgentHost({
-    name: "momo-support",
+    name: "kulabuddy-support",
     role: "worker",
     capabilities: ["customer-support", "faq", "quality-assurance", "knowledge-base", "sla", "training"],
     maxConcurrency: 2,
@@ -617,7 +617,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const educationHost = new AgentHost({
-    name: "momo-education",
+    name: "kulabuddy-education",
     role: "worker",
     capabilities: ["education", "curriculum-design", "teaching", "assessment", "pedagogy", "e-learning"],
     maxConcurrency: 2,
@@ -629,7 +629,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const healthcareHost = new AgentHost({
-    name: "momo-healthcare",
+    name: "kulabuddy-healthcare",
     role: "worker",
     capabilities: ["healthcare", "diagnosis", "treatment-planning", "health-management", "medical-research", "patient-education"],
     maxConcurrency: 2,
@@ -641,7 +641,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const realEstateHost = new AgentHost({
-    name: "momo-real-estate",
+    name: "kulabuddy-real-estate",
     role: "worker",
     capabilities: ["real-estate", "property-valuation", "market-analysis", "investment-strategy", "property-management", "transaction-support"],
     maxConcurrency: 2,
@@ -653,7 +653,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const videoEditorHost = new AgentHost({
-    name: "momo-video-editor",
+    name: "kulabuddy-video-editor",
     role: "worker",
     capabilities: ["video-editing", "storyboard", "color-grading", "audio-mixing", "motion-graphics", "export-rendering"],
     maxConcurrency: 2,
@@ -665,7 +665,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   });
 
   const podcastHost = new AgentHost({
-    name: "momo-podcast-producer",
+    name: "kulabuddy-podcast-producer",
     role: "worker",
     capabilities: ["podcast-production", "script-writing", "voice-generation", "audio-production", "rss-management", "show-notes"],
     maxConcurrency: 2,
@@ -875,7 +875,7 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
   const botManager = new BotManager({
     bots: (config.bots || []) as BotConfig[],
     onMessage: async (msg) => {
-      // Run bot messages through the MOMO runtime
+      // Run bot messages through the KulaBuddy runtime
       const goal = `[${msg.platform}] ${msg.userName}: ${msg.text}`;
       try {
         const result = await runtime.runTask({
@@ -906,11 +906,11 @@ export async function createAgentApp(env: NodeJS.ProcessEnv): Promise<AgentAppRe
       const { exec } = await import("node:child_process");
       const msg = `${title}: ${body}`;
       if (process.platform === "win32") {
-        exec(`powershell -Command "Add-Type -AssemblyName System.Windows.Forms; (New-Object System.Windows.Forms.NotifyIcon){New-Object System.Windows.Forms.NotifyIcon}.Visible = $true; (New-Object System.Windows.Forms.NotifyIcon).ShowBalloonTip(5000, 'MOMO', '${msg.replace(/'/g, "''")}', 'Info')"`);
+        exec(`powershell -Command "Add-Type -AssemblyName System.Windows.Forms; (New-Object System.Windows.Forms.NotifyIcon){New-Object System.Windows.Forms.NotifyIcon}.Visible = $true; (New-Object System.Windows.Forms.NotifyIcon).ShowBalloonTip(5000, 'KulaBuddy', '${msg.replace(/'/g, "''")}', 'Info')"`);
       } else if (process.platform === "darwin") {
-        exec(`osascript -e 'display notification "${msg.replace(/"/g, "\\\"")}" with title "MOMO"'`);
+        exec(`osascript -e 'display notification "${msg.replace(/"/g, "\\\"")}" with title "KulaBuddy"'`);
       } else {
-        exec(`notify-send "MOMO" "${msg.replace(/"/g, "\\\"")}"`);
+        exec(`notify-send "KulaBuddy" "${msg.replace(/"/g, "\\\"")}"`);
       }
     },
   });

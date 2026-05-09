@@ -274,7 +274,7 @@ export class SocialPublishBridge {
       `# 方式1: 使用 Playwright (推荐)`,
       `npx playwright chromium --headed \\`,
       `  --url="${platform.creator}" \\`,
-      `  --script="momo-publish-${draft.platform}.js"`,
+      `  --script="kulabuddy-publish-${draft.platform}.js"`,
       "",
       `# 方式2: 手动发布`,
       `# 1. 打开 ${platform.creator}`,
@@ -328,7 +328,7 @@ export class SocialPublishBridge {
   /** Execute a Playwright publishing script for real */
   async executePublishScript(draft: PublishDraft): Promise<{ success: boolean; output: string; error?: string }> {
     const script = this.buildPublishScript(draft);
-    const scriptPath = join(tmpdir(), `momo-publish-${draft.platform}-${draft.id.slice(0, 8)}.js`);
+    const scriptPath = join(tmpdir(), `kulabuddy-publish-${draft.platform}-${draft.id.slice(0, 8)}.js`);
 
     await writeFile(scriptPath, script, "utf-8");
 
@@ -511,7 +511,7 @@ const { chromium } = require('playwright');
     }
 
     console.log('内容已填写完成，请在浏览器中确认并点击发布');
-    console.log('完成后运行: npm.cmd run momo -- --action=confirm-publish --draft=${draft.id}');
+    console.log('完成后运行: npm.cmd run kulabuddy -- --action=confirm-publish --draft=${draft.id}');
 
     // Keep browser open for manual confirmation
     await new Promise(() => {}); // Never resolves — user closes browser

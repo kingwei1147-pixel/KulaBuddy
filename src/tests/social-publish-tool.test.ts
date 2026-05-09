@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { createPublishPackageTool } from "../tools/builtin/social-publish-tool.js";
 
 test("publish.package creates a safe publishing package instead of claiming a post", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "momo-publish-package-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "kulabuddy-publish-package-"));
   try {
     const tool = createPublishPackageTool(tempDir);
     const result = await tool.execute(
@@ -32,7 +32,7 @@ test("publish.package creates a safe publishing package instead of claiming a po
     assert.equal(result.platform, "douyin");
     assert.equal(existsSync(result.file || ""), true);
     assert.equal(result.blockers.some((item) => item.includes("Publishing bridge is not configured")), true);
-    assert.equal(result.blockers.some((item) => item.includes("MOMO must not claim content was published")), true);
+    assert.equal(result.blockers.some((item) => item.includes("KulaBuddy must not claim content was published")), true);
     const content = readFileSync(result.file || "", "utf8");
     assert.match(content, /本周新闻大事件/);
     assert.match(content, /proof/);

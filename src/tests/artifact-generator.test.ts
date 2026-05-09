@@ -29,7 +29,7 @@ const result: TaskResult = {
 };
 
 test("artifact generator creates pdf and markdown artifacts", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "momo-artifacts-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "kulabuddy-artifacts-"));
   try {
     const generator = new ArtifactGenerator(tempDir);
     const artifacts = await generator.generate(buildTask("pdf"), result);
@@ -42,7 +42,7 @@ test("artifact generator creates pdf and markdown artifacts", async () => {
 });
 
 test("artifact generator creates slides html artifacts", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "momo-slides-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "kulabuddy-slides-"));
   try {
     const generator = new ArtifactGenerator(tempDir);
     const artifacts = await generator.generate(buildTask("slides"), result);
@@ -54,7 +54,7 @@ test("artifact generator creates slides html artifacts", async () => {
 });
 
 test("artifact generator bundles report outputs for product research", async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "momo-report-bundle-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "kulabuddy-report-bundle-"));
   try {
     const generator = new ArtifactGenerator(tempDir);
     const artifacts = await generator.generate(
