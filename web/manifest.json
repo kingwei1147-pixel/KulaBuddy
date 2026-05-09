@@ -1,7 +1,7 @@
 {
   "name": "KulaBuddy - Autonomous AI Agent",
   "short_name": "KulaBuddy",
-  "description": "Local-first autonomous AI agent OS",
+  "description": "Local-first autonomous AI agent OS with built-in GGUF runtime",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0d1117",
